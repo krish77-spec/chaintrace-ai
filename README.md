@@ -6,7 +6,7 @@ SIH 2026 · Problem statement **SIH26146** · NTRO · Cryptocurrency · Team of 
 [![CI](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-3776ab.svg)](requirements.txt)
 [![Runtime 100% offline](https://img.shields.io/badge/runtime-100%25%20offline-success.svg)](#16-offline-guarantees)
-[![Tests](https://img.shields.io/badge/tests-60%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-64%20passing-brightgreen.svg)](tests/)
 [![Docs](https://img.shields.io/badge/docs-14%20parts-informational.svg)](GUIDE.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -112,7 +112,15 @@ python scripts/validate_detections.py      # precision/recall vs the planted gro
 
 streamlit run app/dashboard.py             # dashboard on :8501
 uvicorn src.api.main:app --port 8000       # API on :8000
-pytest -q                                  # 60 tests, ~9 s
+pytest -q                                  # 64 tests, ~15 s
+```
+
+Or skip the Docker image entirely and let the app warm itself up — this is the same entrypoint the
+hosted copy uses (Part 14), and it generates the dataset and runs the pipeline on first paint if it
+has to:
+
+```bash
+streamlit run app/cloud_app.py             # dashboard on :8501, self-healing
 ```
 
 ---
@@ -830,7 +838,9 @@ chaintrace-ai/
 │                                   evidence, runbook, tuning, troubleshooting, tutorial,
 │                                   dataset audit, the seven X-factors (all built), tutorial
 ├── requirements.txt              ← pinned core stack (SHAP is separate, see below)
+├── requirements-dev.txt          ← the same, plus pytest (development and CI)
 ├── requirements-shap.txt         ← optional real-SHAP add-on
+├── pytest.ini                    ← makes the repo root importable under any pytest invocation
 ├── Dockerfile                    ← offline image, data + models baked in at build time
 ├── docker-compose.yml            ← one-command demo (8501 dashboard, 8000 API)
 ├── entrypoint.sh                 ← starts API + dashboard, self-heals missing artefacts
@@ -849,11 +859,15 @@ chaintrace-ai/
 │   ├── graph/                    ← builder.py
 │   ├── ml/                       ← features · clustering · anomaly · peeling · risk · explain
 │   ├── pipeline/                 ← runner.py (the eight stages)
+│   ├── bootstrap.py              ← warm-up used by hosts with no shell step (no-op when warm)
 │   ├── api/                      ← main.py · routes.py · schemas.py
 │   └── utils/                    ← hashing.py (hash-chained ledger) · bitcoin.py (real address
 │                                   checksums) · casefile.py (dossiers) · infrastructure.py (ASN
 │                                   roll-up) · helpers.py
 ├── app/dashboard.py              ← the four-tab investigator console
+├── app/cloud_app.py              ← hosted entrypoint: warm up if needed, then run the console
+├── app/cloud_app.py              ← hosted entrypoint: warm up if needed, then run the console
+├── src/bootstrap.py              ← the warm-up itself (no-op when the artefacts exist)
 ├── scripts/                      ← generate_sample_data · audit_dataset · benchmark_detectors
 │                                   train_models · run_full_pipeline · validate_detections
 │                                   export_graph_html · render_doc_visuals · deploy_hf_space.sh
@@ -904,36 +918,38 @@ chaintrace-ai/
 
 ## 21. Deployment
 
-The system is **one container with two processes**, which is what makes the free hosting tiers
-workable: Streamlit on the proxied port (**8501** locally, **7860** on Hugging Face) and FastAPI on
+The system is **one container with two processes**, which is what makes most hosting tiers workable:
+Streamlit on the proxied port (**8501** locally, whatever the host injects elsewhere) and FastAPI on
 **8000**, internal to the same container. The dashboard calls the API first and silently falls back
-to reading `data/artifacts/` from disk, so the console still works on a host that can only expose
-one port.
+to reading `data/artifacts/` from disk, so the console works unchanged on a host that runs a single
+Python process.
 
 | Step | Command |
 |---|---|
 | Publish the code | `git init -b main && git add -A && git commit -m "ChainTrace AI - SIH26146"` then `gh repo create chaintrace-ai --public --source=. --remote=origin --push` |
-| Host a live copy | `scripts/deploy_hf_space.sh <you>/chaintrace-ai <hf-write-token>` |
-| Update either one | commit and push — the Space and the CI both rebuild by themselves |
 | Run it locally | `docker compose up --build` |
+| Self-healing local run (no Docker) | `streamlit run app/cloud_app.py` |
+| Host a live copy | Streamlit Community Cloud → main file **`app/cloud_app.py`** (see below) |
+| Host the full Docker image | `scripts/deploy_hf_space.sh <you>/chaintrace-ai <hf-write-token>` (needs a paid HF plan) |
 
-Three things worth knowing before you deploy:
+Four things worth knowing before you deploy:
 
 - **CI proves reproducibility, not just correctness.** `.github/workflows/ci.yml` regenerates the
 dataset, audits it against SIH26146, trains both anomaly models, runs all eight stages, scores the
-detectors against the planted ground truth, runs the 60 tests and builds the real image — on a clean
+detectors against the planted ground truth, runs the 64 tests and builds the real image — on a clean
 checkout with no data, no models and no artefacts.
-- **Only the dashboard port is proxied** on a Hugging Face Space (live at both
-`huggingface.co/spaces/<you>/chaintrace-ai` and `<you>-chaintrace-ai.hf.space`). The API is live
-inside the same container, so the console stays `API · live`, but the Swagger UI at `/docs` remains a
-local-only story.
-- **Rebuild, do not restart.** The code lives inside the image and only `./data` is bind-mounted, so a
-restarted old container serves the old dashboard.
+- **The artefacts are built, never committed.** On Docker the image build does it; on Streamlit
+Community Cloud `app/cloud_app.py` calls `src/bootstrap.py` on first paint and the console is
+populated in about three seconds. Uncommitted derived data cannot drift from the code.
+- **`app/dashboard.py` is the console; `app/cloud_app.py` is a warm-up wrapper around it.** Point a
+single-process host at the wrapper and a container host at either.
+- **Rebuild, do not restart.** The code lives inside the Docker image and only `./data` is
+bind-mounted, so a restarted old container serves the old dashboard.
 
-**[docs/14_DEPLOY.md](docs/14_DEPLOY.md)** has the full runbook: the three hosting routes compared,
-the step-by-step Space setup, the post-deploy verification checklist, deployment troubleshooting, and
-the honest list of what a hosted copy does *not* prove (synthetic data, no authentication, ephemeral
-disk).
+**[docs/14_DEPLOY.md](docs/14_DEPLOY.md)** is the full runbook: the four hosting routes compared
+with their September 2026 prices and limits, the step-by-step Streamlit Community Cloud setup, the
+post-deploy verification checklist, deployment troubleshooting, and the honest list of what a hosted
+copy does *not* prove (synthetic data, no authentication, ephemeral disk).
 
 ---
 

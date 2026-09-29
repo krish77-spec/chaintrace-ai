@@ -86,3 +86,6 @@ seeds**, then spread outward through the graph.
   ground-truth manifest, Part 5 names the real-world technique behind every planted pattern, and Part 12
   is the honest audit — including the four things it deliberately does *not* prove.
 - **Deciding what to build next:** Part 13.
+- **Putting a live link in front of a judge:** Part 14 (Deployment) — publish to GitHub, then host a
+  free public copy, with a checklist for verifying it and an honest list of what a hosted copy does
+  *not* prove.

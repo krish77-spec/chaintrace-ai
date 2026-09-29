@@ -109,13 +109,14 @@ chaintrace-ai/
 │   ├── deploy_hf_space.sh      publish the current commit to a Hugging Face Space (Part 14)
 │   └── export_graph_html.py    standalone offline pyvis page (no server required)
 │
-├── tests/                      60 tests, all hermetic (see conftest.py)
+├── tests/                      64 tests, all hermetic (see conftest.py)
 │   ├── conftest.py             sandboxes every data path into a tmp dir (tests can never touch the demo)
 │   ├── test_pipeline.py        19 tests: generator, parsers, enrich, correlate, graph, ML, alerts, ledger, API
 │   ├── test_dashboard.py       5 tests: the four screens, focus mode, the manual timeline seek
 │   ├── test_focus.py           23 tests: the focus ladder, fade, money-flow rows, timeline stats
 │   ├── test_dataset_contract.py 4 tests: a freshly generated dataset still satisfies the SIH26146 brief
-│   └── test_xfactors.py        9 tests: the X-factors A–G (ledger, case files, benchmark, replay, infra)
+│   ├── test_xfactors.py        9 tests: the X-factors A–G (ledger, case files, benchmark, replay, infra)
+│   └── test_bootstrap.py       4 tests: the shell-less warm-up and the hosted entrypoint
 │
 └── data/                       everything the pipeline reads and writes (dataset tracked, derived files ignored)
     ├── synthetic/              generated input: transactions.csv, network_metadata.csv, seeds, planted_patterns.json
@@ -428,6 +429,9 @@ dashboard works whether or not the API is up (`source: "api"` vs `"filesystem"` 
 - `test_xfactors.py` (9 tests): the X-factors A–G — ledger integrity and tamper detection, case-file
   export, the rules baseline, replay frames, the infrastructure roll-up, counterfactuals, and the real
   Base58Check address encoding.
+- `test_bootstrap.py` (4 tests): the warm-up a host with no shell step depends on — a bare checkout
+  becomes a populated console, a warm copy costs nothing, a deleted dataset is regenerated, and
+  `streamlit run app/cloud_app.py` renders the whole console from cold.
 
 ### `data/` — inputs, models, outputs
 
