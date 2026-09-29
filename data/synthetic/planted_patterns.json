@@ -1,0 +1,1678 @@
+{
+  "seed": 42,
+  "description": "Ground-truth manifest of every pattern planted by the generator.",
+  "window_start": "2026-08-23T00:00:00",
+  "window_end": "2026-09-22T00:00:00",
+  "seed_illicit_wallets": [
+    "bc1q35srz6a27ps6m0l89jweznt83n2sqn2fllftgx",
+    "1KNrr2QijZH5Q81U9MQW6raAqVc7aryJS3",
+    "1GTx1MHpFJAJA34b66TWSEonCZZZzoxRgg",
+    "bc1qcsf8g6hz5xfnrdajvflxv03957cqrexqvlr4hc",
+    "3NJZv1sYaucGfN91J414i4U1YxZ9j7aiUx",
+    "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4",
+    "1M6m9iMvXUqWuQtcJ1DySzpzGeav5vAuLT",
+    "18n8YK7kXg3UomcgKrB4feUPnK7ZW3SMht"
+  ],
+  "peeling_chains": [
+    {
+      "chain_id": "PC-01",
+      "length": 5,
+      "starts_at_seed": true,
+      "reaches_seed": false,
+      "txids": [
+        "342f31d258f6168f3f233161c95b3812cc96206ae2f43a3e5bb37a3cfca73934",
+        "7b91f315450ac5d4a1a04ab7ed2c9e2e339a9a9057b3849f5d7f69c1fb5f23eb",
+        "a73ebda955ad0a9b8578ed623e8e34d065a545223983c7786f04f2399f7993e6",
+        "0deb17c8e543b0611790e345461381d51bc2d84ef46ee13aa19e41d1a7d14816",
+        "fba4c6d7fc5ef37ac33b42eabcfc4d7dbf8c8f64847632a1a7e5a0a6c370f549"
+      ],
+      "hops": [
+        {
+          "hop": 0,
+          "txid": "342f31d258f6168f3f233161c95b3812cc96206ae2f43a3e5bb37a3cfca73934",
+          "from_wallet": "bc1q35srz6a27ps6m0l89jweznt83n2sqn2fllftgx",
+          "continue_wallet": "15BqRqvx6Fd4e8JUzGLezPbtbcyvhDFc1d",
+          "peel_wallet": "34B5sPbwQ5QCMthRftDEQ5tWWSMMfU525Q",
+          "continue_amount": 98.3023595,
+          "peel_amount": 16.50350338,
+          "timestamp": "2026-08-23T21:29:57.317014"
+        },
+        {
+          "hop": 1,
+          "txid": "7b91f315450ac5d4a1a04ab7ed2c9e2e339a9a9057b3849f5d7f69c1fb5f23eb",
+          "from_wallet": "15BqRqvx6Fd4e8JUzGLezPbtbcyvhDFc1d",
+          "continue_wallet": "bc1qkaleeuck5rfusn2edvqcu0p3rm7g07scdlg3z4",
+          "peel_wallet": "1AgHhBn4swRvAFWBf48aWAgYNuQtWfveb7",
+          "continue_amount": 82.63027479,
+          "peel_amount": 15.63276377,
+          "timestamp": "2026-08-23T23:03:59.317014"
+        },
+        {
+          "hop": 2,
+          "txid": "a73ebda955ad0a9b8578ed623e8e34d065a545223983c7786f04f2399f7993e6",
+          "from_wallet": "bc1qkaleeuck5rfusn2edvqcu0p3rm7g07scdlg3z4",
+          "continue_wallet": "bc1q5z5r23sdxywvkf40mrm7j7tl9552hmqt4jzhvv",
+          "peel_wallet": "1GE1JEhB5aHxnjDQhvHRoR8cLaokyaseBC",
+          "continue_amount": 76.92511553,
+          "peel_amount": 5.67210715,
+          "timestamp": "2026-08-24T00:14:13.317014"
+        },
+        {
+          "hop": 3,
+          "txid": "0deb17c8e543b0611790e345461381d51bc2d84ef46ee13aa19e41d1a7d14816",
+          "from_wallet": "bc1q5z5r23sdxywvkf40mrm7j7tl9552hmqt4jzhvv",
+          "continue_wallet": "bc1qu0p8gzc6h5x7ezfd9ryswlyrr5fw209c9kmpa0",
+          "peel_wallet": "18x6uPActitdM7bYSDpTXK3du6MWhPxhmo",
+          "continue_amount": 66.80397478,
+          "peel_amount": 10.0903707,
+          "timestamp": "2026-08-24T00:52:34.317014"
+        },
+        {
+          "hop": 4,
+          "txid": "fba4c6d7fc5ef37ac33b42eabcfc4d7dbf8c8f64847632a1a7e5a0a6c370f549",
+          "from_wallet": "bc1qu0p8gzc6h5x7ezfd9ryswlyrr5fw209c9kmpa0",
+          "continue_wallet": "1K9oQEkW9S5MnLv2auHhGLhbQF4K98Q9eK",
+          "peel_wallet": "144sjhBx8UN9oraURr6cmcYFuStJmawoKZ",
+          "continue_amount": 61.21979021,
+          "peel_amount": 5.55746298,
+          "timestamp": "2026-08-24T02:25:31.317014"
+        }
+      ]
+    },
+    {
+      "chain_id": "PC-02",
+      "length": 7,
+      "starts_at_seed": true,
+      "reaches_seed": true,
+      "txids": [
+        "2c1edeea640f18eea09a4e0e773a445353c1d250d0e317ee8da63e00d1c81d15",
+        "1372976d8b32dcf09278c4890ab3e1ad6cf5792478ec866ffec5abba0653dd84",
+        "bfa7f14a2088c71c76f1cdd6e322873bf51b8595a6e4476fa2737b0d88f848c6",
+        "f4626245435043ad05d1bb0fee332740b01c40037e027952498801453bfa2c3c",
+        "c072dcb1b0956491c89038cb12565d9f72cd3998756e854e639433840fde384e",
+        "4d478150d2b9e2bd21028d5030d53ea183c5224ef539755c56f0f393c8c69e6f",
+        "77e266689c34cbf112071854e5b1423c50ef37ab588526897a27c4671e239b46"
+      ],
+      "hops": [
+        {
+          "hop": 0,
+          "txid": "2c1edeea640f18eea09a4e0e773a445353c1d250d0e317ee8da63e00d1c81d15",
+          "from_wallet": "1KNrr2QijZH5Q81U9MQW6raAqVc7aryJS3",
+          "continue_wallet": "19PK74aQV8p2PpcnjaUcR1AC7CXkZ4AyT9",
+          "peel_wallet": "1GTx1MHpFJAJA34b66TWSEonCZZZzoxRgg",
+          "continue_amount": 170.37447289,
+          "peel_amount": 17.92927677,
+          "timestamp": "2026-08-29T14:00:04.866130"
+        },
+        {
+          "hop": 1,
+          "txid": "1372976d8b32dcf09278c4890ab3e1ad6cf5792478ec866ffec5abba0653dd84",
+          "from_wallet": "19PK74aQV8p2PpcnjaUcR1AC7CXkZ4AyT9",
+          "continue_wallet": "1PfEWez1fnJM7sVSsXJgDBgccaRJ5367AW",
+          "peel_wallet": "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4",
+          "continue_amount": 140.01568111,
+          "peel_amount": 30.29064199,
+          "timestamp": "2026-08-29T15:25:01.866130"
+        },
+        {
+          "hop": 2,
+          "txid": "bfa7f14a2088c71c76f1cdd6e322873bf51b8595a6e4476fa2737b0d88f848c6",
+          "from_wallet": "1PfEWez1fnJM7sVSsXJgDBgccaRJ5367AW",
+          "continue_wallet": "3FYS3XUKC8iL4Ukudt6CH3nNwQVBKZGCEd",
+          "peel_wallet": "18fXwPssMLSuR3SL8zPb7RwFgEnicjyHUH",
+          "continue_amount": 120.8218983,
+          "peel_amount": 19.13777654,
+          "timestamp": "2026-08-29T16:45:15.866130"
+        },
+        {
+          "hop": 3,
+          "txid": "f4626245435043ad05d1bb0fee332740b01c40037e027952498801453bfa2c3c",
+          "from_wallet": "3FYS3XUKC8iL4Ukudt6CH3nNwQVBKZGCEd",
+          "continue_wallet": "1JWHAWnXsmjJis1iobCJ7hpQH2bMWn4bwy",
+          "peel_wallet": "1BxfR2sw1XZiBdGyc8uzo7DYdWQVvcrJQj",
+          "continue_amount": 104.64562777,
+          "peel_amount": 16.12794177,
+          "timestamp": "2026-08-29T17:54:30.866130"
+        },
+        {
+          "hop": 4,
+          "txid": "c072dcb1b0956491c89038cb12565d9f72cd3998756e854e639433840fde384e",
+          "from_wallet": "1JWHAWnXsmjJis1iobCJ7hpQH2bMWn4bwy",
+          "continue_wallet": "3N5riwtd4stvvuBEDsQiwTh1frm9b7bSCf",
+          "peel_wallet": "166v8NQGRmer1T7mArEVnSri5JE3empqxP",
+          "continue_amount": 97.77728859,
+          "peel_amount": 6.82648093,
+          "timestamp": "2026-08-29T18:58:59.866130"
+        },
+        {
+          "hop": 5,
+          "txid": "4d478150d2b9e2bd21028d5030d53ea183c5224ef539755c56f0f393c8c69e6f",
+          "from_wallet": "3N5riwtd4stvvuBEDsQiwTh1frm9b7bSCf",
+          "continue_wallet": "bc1qxhy679y7u92memsws0ew3tzauvx3ccja2hyc52",
+          "peel_wallet": "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4",
+          "continue_amount": 84.59138958,
+          "peel_amount": 13.14678809,
+          "timestamp": "2026-08-29T20:23:33.866130"
+        },
+        {
+          "hop": 6,
+          "txid": "77e266689c34cbf112071854e5b1423c50ef37ab588526897a27c4671e239b46",
+          "from_wallet": "bc1qxhy679y7u92memsws0ew3tzauvx3ccja2hyc52",
+          "continue_wallet": "bc1q376uvdprld2nmzsa5eateuxqjn0ltve4du93u4",
+          "peel_wallet": "bc1qjzz4pm6zxj4mw5pagdjjr2a9f364pmwqavlsu6",
+          "continue_amount": 69.28815079,
+          "peel_amount": 15.26940223,
+          "timestamp": "2026-08-29T21:52:08.866130"
+        }
+      ]
+    },
+    {
+      "chain_id": "PC-03",
+      "length": 6,
+      "starts_at_seed": false,
+      "reaches_seed": true,
+      "txids": [
+        "96c11f145fa179797ee97fb1eeab0dc6f26303b900f0d6f15427f159aee28d92",
+        "9eddbaf0c0608fafb03a0b1645dd49e9bb08739771e641694b1acae863a9c907",
+        "71d1513ce27e9eafafec7499c1c086d5fd9acbc482780adfd386e2a98d054fe3",
+        "ca1a5cb895f8150ad5eda1d7ab418caf77db17405ab5cce365719583cc506800",
+        "ee71f9309f7be4241bdd161a737f9182db55283e628a1ed0d6c89063c164aa34",
+        "08745a3af49f10cb96dc9524783751d24a683ecc36d43648d266ffa0edd313cf"
+      ],
+      "hops": [
+        {
+          "hop": 0,
+          "txid": "96c11f145fa179797ee97fb1eeab0dc6f26303b900f0d6f15427f159aee28d92",
+          "from_wallet": "bc1qd3rq6yzltpeheqyx6s0h3dvg4hfc3ej23t9m02",
+          "continue_wallet": "bc1qk88l4u8zzqcwfcn4zc2xfefdf86lgycm3sxfr0",
+          "peel_wallet": "1GTx1MHpFJAJA34b66TWSEonCZZZzoxRgg",
+          "continue_amount": 105.24567536,
+          "peel_amount": 9.95282229,
+          "timestamp": "2026-08-30T19:46:20.822914"
+        },
+        {
+          "hop": 1,
+          "txid": "9eddbaf0c0608fafb03a0b1645dd49e9bb08739771e641694b1acae863a9c907",
+          "from_wallet": "bc1qk88l4u8zzqcwfcn4zc2xfefdf86lgycm3sxfr0",
+          "continue_wallet": "1PDAu3i6Xpe4Dw52ypxsXCDqJiN5iZcdm2",
+          "peel_wallet": "bc1qttrclckldruea0e8anhrehffl8xv7t0pqw63kh",
+          "continue_amount": 98.51775516,
+          "peel_amount": 6.68582193,
+          "timestamp": "2026-08-30T20:12:15.822914"
+        },
+        {
+          "hop": 2,
+          "txid": "71d1513ce27e9eafafec7499c1c086d5fd9acbc482780adfd386e2a98d054fe3",
+          "from_wallet": "1PDAu3i6Xpe4Dw52ypxsXCDqJiN5iZcdm2",
+          "continue_wallet": "bc1q57juj5muj74t9p7h33ch2nv3y8ju5n3t9lafrc",
+          "peel_wallet": "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4",
+          "continue_amount": 80.12618153,
+          "peel_amount": 18.35216653,
+          "timestamp": "2026-08-30T21:00:41.822914"
+        },
+        {
+          "hop": 3,
+          "txid": "ca1a5cb895f8150ad5eda1d7ab418caf77db17405ab5cce365719583cc506800",
+          "from_wallet": "bc1q57juj5muj74t9p7h33ch2nv3y8ju5n3t9lafrc",
+          "continue_wallet": "1BfPtEmFtf8FTh7nCZubg6C35FsepWgNRT",
+          "peel_wallet": "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4",
+          "continue_amount": 72.23656893,
+          "peel_amount": 7.85756213,
+          "timestamp": "2026-08-30T21:12:50.822914"
+        },
+        {
+          "hop": 4,
+          "txid": "ee71f9309f7be4241bdd161a737f9182db55283e628a1ed0d6c89063c164aa34",
+          "from_wallet": "1BfPtEmFtf8FTh7nCZubg6C35FsepWgNRT",
+          "continue_wallet": "15Jbj3VuiqfxtNWM2GC8xMdSNfmPnBga54",
+          "peel_wallet": "bc1qrqv2smj6d35h0hd6pkk207a9ry8k0wjkdt54uk",
+          "continue_amount": 63.19760901,
+          "peel_amount": 9.01006529,
+          "timestamp": "2026-08-30T21:35:18.822914"
+        },
+        {
+          "hop": 5,
+          "txid": "08745a3af49f10cb96dc9524783751d24a683ecc36d43648d266ffa0edd313cf",
+          "from_wallet": "15Jbj3VuiqfxtNWM2GC8xMdSNfmPnBga54",
+          "continue_wallet": "1JHEPs6ZHiRyFs5ocssmzrhQUXY4zR4Xbp",
+          "peel_wallet": "144sjhBx8UN9oraURr6cmcYFuStJmawoKZ",
+          "continue_amount": 53.66506858,
+          "peel_amount": 9.50726139,
+          "timestamp": "2026-08-30T22:21:27.822914"
+        }
+      ]
+    },
+    {
+      "chain_id": "PC-04",
+      "length": 4,
+      "starts_at_seed": false,
+      "reaches_seed": true,
+      "txids": [
+        "e84baba2934311f82e48fbade240c7d4640aea8b59bab8aaa265d5b5231c8ad4",
+        "c14c36fffffe63c9b5fbaceb3ae5467e68fdf921ed66bb800c6186fba4042844",
+        "46ea467ef414126bb17c51bfbcde8f0002dfa16984f73312cc93b84ba31570b9",
+        "7b8886d735108c7beb2a82d66973f307ccec99693d3d995f75ca795d7dd846f8"
+      ],
+      "hops": [
+        {
+          "hop": 0,
+          "txid": "e84baba2934311f82e48fbade240c7d4640aea8b59bab8aaa265d5b5231c8ad4",
+          "from_wallet": "bc1quc9z8tvdr48qve576uu8ykch2v8fhfp376a68x",
+          "continue_wallet": "bc1pgueq29vfm9e2m2l4zmucxep304ge4x5z7y8w32juv5jm0kndte3qetrv0g",
+          "peel_wallet": "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4",
+          "continue_amount": 142.12871131,
+          "peel_amount": 19.32630504,
+          "timestamp": "2026-09-01T21:37:04.777121"
+        },
+        {
+          "hop": 1,
+          "txid": "c14c36fffffe63c9b5fbaceb3ae5467e68fdf921ed66bb800c6186fba4042844",
+          "from_wallet": "bc1pgueq29vfm9e2m2l4zmucxep304ge4x5z7y8w32juv5jm0kndte3qetrv0g",
+          "continue_wallet": "bc1qx7awxudale4v6u2f988t4789djaw263r5u45dt",
+          "peel_wallet": "bc1qrqv2smj6d35h0hd6pkk207a9ry8k0wjkdt54uk",
+          "continue_amount": 114.54410877,
+          "peel_amount": 27.52775106,
+          "timestamp": "2026-09-01T22:40:59.777121"
+        },
+        {
+          "hop": 2,
+          "txid": "46ea467ef414126bb17c51bfbcde8f0002dfa16984f73312cc93b84ba31570b9",
+          "from_wallet": "bc1qx7awxudale4v6u2f988t4789djaw263r5u45dt",
+          "continue_wallet": "bc1psm792y8w7ktuzcqkq95286j9dgkgua44j8q75gen9l2kzj5d059q3tkk42",
+          "peel_wallet": "3NJZv1sYaucGfN91J414i4U1YxZ9j7aiUx",
+          "continue_amount": 92.54615608,
+          "peel_amount": 21.95213505,
+          "timestamp": "2026-09-01T23:25:29.777121"
+        },
+        {
+          "hop": 3,
+          "txid": "7b8886d735108c7beb2a82d66973f307ccec99693d3d995f75ca795d7dd846f8",
+          "from_wallet": "bc1psm792y8w7ktuzcqkq95286j9dgkgua44j8q75gen9l2kzj5d059q3tkk42",
+          "continue_wallet": "bc1qqm9qqf6rfn6284dz0q0602hyf94z6l0gn6f060",
+          "peel_wallet": "1KNrr2QijZH5Q81U9MQW6raAqVc7aryJS3",
+          "continue_amount": 76.7712094,
+          "peel_amount": 15.73792822,
+          "timestamp": "2026-09-02T00:43:16.777121"
+        }
+      ]
+    },
+    {
+      "chain_id": "PC-05",
+      "length": 7,
+      "starts_at_seed": false,
+      "reaches_seed": true,
+      "txids": [
+        "5e26a3d774559235a12a134ece23666fbf788248f142553b6736bc8211cf2c27",
+        "5980e7ec6f2846624bc0d74f1155835567235c0815e275dc5c8161898b8a4a25",
+        "1f384c83b9adea5ad9b9abc766007ac0e7ad70c1be34ed2049dd9af1ff5f0e45",
+        "74ad0dad76e63ec6684107a78d298fec71cba2e2425823e3e8063235ab8a5f63",
+        "3fe77e6c3021bd460b52c5714bd35206f2ef531d3ff80e7f4581ff1ee8e4f61c",
+        "f0cfb3b704b1c081e0a8312ca3f9d3421e09617bc2fe8945a2d43031a1d6efb2",
+        "3872c32a1d9e0801b21efb69bc260f1b14494dc9da6f9273be8c74517d450cec"
+      ],
+      "hops": [
+        {
+          "hop": 0,
+          "txid": "5e26a3d774559235a12a134ece23666fbf788248f142553b6736bc8211cf2c27",
+          "from_wallet": "bc1pzxvmuhy50wgxlhjz5zhhn7d36y09lqamjvzdss3fjs8z25tkuzcswuk82c",
+          "continue_wallet": "1Ap8Tyu8vvvbgN3SABoxvR9xnNS3r5vDZE",
+          "peel_wallet": "bc1qjzz4pm6zxj4mw5pagdjjr2a9f364pmwqavlsu6",
+          "continue_amount": 84.91029972,
+          "peel_amount": 18.70110892,
+          "timestamp": "2026-08-25T18:32:23.899826"
+        },
+        {
+          "hop": 1,
+          "txid": "5980e7ec6f2846624bc0d74f1155835567235c0815e275dc5c8161898b8a4a25",
+          "from_wallet": "1Ap8Tyu8vvvbgN3SABoxvR9xnNS3r5vDZE",
+          "continue_wallet": "bc1qkpwp3zy5ttfzgqers3y9l3mud9t7h6ffmvuhel",
+          "peel_wallet": "bc1qcsf8g6hz5xfnrdajvflxv03957cqrexqvlr4hc",
+          "continue_amount": 78.39030465,
+          "peel_amount": 6.48603095,
+          "timestamp": "2026-08-25T19:16:40.899826"
+        },
+        {
+          "hop": 2,
+          "txid": "1f384c83b9adea5ad9b9abc766007ac0e7ad70c1be34ed2049dd9af1ff5f0e45",
+          "from_wallet": "bc1qkpwp3zy5ttfzgqers3y9l3mud9t7h6ffmvuhel",
+          "continue_wallet": "bc1q7wrd3z9k3keurngadf675yca6ys7cpr6msjskl",
+          "peel_wallet": "bc1qrqv2smj6d35h0hd6pkk207a9ry8k0wjkdt54uk",
+          "continue_amount": 69.28812527,
+          "peel_amount": 9.07082326,
+          "timestamp": "2026-08-25T20:34:19.899826"
+        },
+        {
+          "hop": 3,
+          "txid": "74ad0dad76e63ec6684107a78d298fec71cba2e2425823e3e8063235ab8a5f63",
+          "from_wallet": "bc1q7wrd3z9k3keurngadf675yca6ys7cpr6msjskl",
+          "continue_wallet": "39dxGcYbKWZJGenLTewXQBuk7ccf5MPJbX",
+          "peel_wallet": "18fXwPssMLSuR3SL8zPb7RwFgEnicjyHUH",
+          "continue_amount": 64.23170003,
+          "peel_amount": 5.02870999,
+          "timestamp": "2026-08-25T21:56:52.899826"
+        },
+        {
+          "hop": 4,
+          "txid": "3fe77e6c3021bd460b52c5714bd35206f2ef531d3ff80e7f4581ff1ee8e4f61c",
+          "from_wallet": "39dxGcYbKWZJGenLTewXQBuk7ccf5MPJbX",
+          "continue_wallet": "bc1qdc9ryxcgew5g89c00q0wssqtzpx65qkpy459kn",
+          "peel_wallet": "bc1qcsf8g6hz5xfnrdajvflxv03957cqrexqvlr4hc",
+          "continue_amount": 59.36033091,
+          "peel_amount": 4.84567644,
+          "timestamp": "2026-08-25T22:05:41.899826"
+        },
+        {
+          "hop": 5,
+          "txid": "f0cfb3b704b1c081e0a8312ca3f9d3421e09617bc2fe8945a2d43031a1d6efb2",
+          "from_wallet": "bc1qdc9ryxcgew5g89c00q0wssqtzpx65qkpy459kn",
+          "continue_wallet": "bc1qqutjtk9l79rl99zetg5a4qx8h2wrmqv3fpk88w",
+          "peel_wallet": "16eBF78m2it6aiAzeKg2iDFxg4Qz1d883E",
+          "continue_amount": 55.12592545,
+          "peel_amount": 4.21066133,
+          "timestamp": "2026-08-25T22:36:52.899826"
+        },
+        {
+          "hop": 6,
+          "txid": "3872c32a1d9e0801b21efb69bc260f1b14494dc9da6f9273be8c74517d450cec",
+          "from_wallet": "bc1qqutjtk9l79rl99zetg5a4qx8h2wrmqv3fpk88w",
+          "continue_wallet": "17acF8mPi9zDZBqMiJUyZfWJu5wNw5qqvM",
+          "peel_wallet": "34B5sPbwQ5QCMthRftDEQ5tWWSMMfU525Q",
+          "continue_amount": 47.91840184,
+          "peel_amount": 7.18547324,
+          "timestamp": "2026-08-25T23:10:37.899826"
+        }
+      ]
+    }
+  ],
+  "mixing_transactions": [
+    {
+      "txid": "c233b007f09d97694d23f26ec1b37855f8a6ad3941688fb2d58497c2ef0f5099",
+      "n_inputs": 8,
+      "n_outputs": 8,
+      "timestamp": "2026-08-27T12:37:23.006696",
+      "note": "many unrelated inputs, many equal-sized outputs (CoinJoin-like)"
+    },
+    {
+      "txid": "de86c630734a94649f81f7aad53b3c46c04924fc0c8e04c2bd73f521b0faa25e",
+      "n_inputs": 7,
+      "n_outputs": 5,
+      "timestamp": "2026-09-09T09:29:49.479047",
+      "note": "many unrelated inputs, many equal-sized outputs (CoinJoin-like)"
+    },
+    {
+      "txid": "19b8344b51933dde414eab4c27cd95e0af4688a4b6c2cc020619c5ed79532b2f",
+      "n_inputs": 7,
+      "n_outputs": 9,
+      "timestamp": "2026-08-29T11:28:08.549309",
+      "note": "many unrelated inputs, many equal-sized outputs (CoinJoin-like)"
+    }
+  ],
+  "anomalous_transactions": [
+    {
+      "kind": "extreme_fee_ratio",
+      "fee_ratio": 0.2903,
+      "txid": "d7eb765e910a97922d586cf9f1dab881604612825eaf21b7e483713dadd549f7",
+      "timestamp": "2026-09-03T15:51:57.934051"
+    },
+    {
+      "kind": "very_large_amount",
+      "amount": 1142.81639985,
+      "txid": "fb35b110eb39f6fe69cd5d416a60bd7eb9e7e9a1e4a3abee314b66a1bc32b79e",
+      "timestamp": "2026-09-08T12:43:11.728966"
+    },
+    {
+      "kind": "unusual_script",
+      "script_type": "NONSTANDARD",
+      "txid": "c146c44a50b9dc6a108c9c9e1657310b86dd91bc7dca2d6635e05bcd03a32198",
+      "timestamp": "2026-09-01T16:22:22.376660"
+    },
+    {
+      "kind": "rapid_successive_small",
+      "burst_size": 16,
+      "txids": [
+        "1e6d310533c31808c4f20ebd7c440fd21cb039f6b91ff9799567bcbef521ac0d",
+        "0ff6a83c5175e6c5bdd0a3935caf08d1634623527e6b984e1c78987458aa23d8",
+        "83a2c84879a032e053cb8bc455773da35e12741740148e3803120fde7512886b",
+        "b845fd85db0d8ec4996360f51cc4c9b352ed0249c13870dba4eed3ff24cfe693",
+        "0b643c45feeeed1eeec94389d3b872cf6f0c8d264c1ad90f9819d77fc0a5671f",
+        "9a88b09cda1428f11be2621b20602cb3861c79e656833c083f539071cd9b876e",
+        "c808476ef92d6b6c589a738ad9be0b930afb041bca441cce6527c325b91ddce2",
+        "5ce05fe681798521c66f80e0157adef0bbbb4f7e35119e470b3ad88f9efa2ed7",
+        "4972295c6d76c8a9a62926c4f3aa84b6c4f8135e1c7eaf9f3c502bc3d66bfeef",
+        "2d6a44514bec411d026356069733e591bd321fdb98a5a7fc77a467064370e00e",
+        "475c3f3048c6d88d74a030036e1d273799c2352e30d849bc8fd93a3bb119ec7d",
+        "4df6dfbfc012061b28869ccc801d424ffb860504c04afb233d6ffb5b699a7d77",
+        "3c31331828f11ef24aa8729f5b21500e2054bd74754413bdeffb497279669753",
+        "46d906196d588680f3bdbc69ada733aacb41b56442568b002f3d76683bd6a081",
+        "aa0faaf6c80946943e97ec4a492d6bb33f660e8b966a00182c4899613a3172d2",
+        "b76ce95f9d48460831a034693c16822cbdd170428350e7c45c8ea9edc09b06c3"
+      ],
+      "txid": "1e6d310533c31808c4f20ebd7c440fd21cb039f6b91ff9799567bcbef521ac0d",
+      "timestamp": "2026-08-28T03:08:54.171433"
+    },
+    {
+      "kind": "extreme_fan_in",
+      "n_inputs": 13,
+      "txid": "754747580c3e0215fbc32c6aeedc9c49cf7ce436e4f8ab6f16c3fa25c547af21",
+      "timestamp": "2026-09-16T23:04:23.140518"
+    },
+    {
+      "kind": "extreme_fan_out",
+      "n_outputs": 15,
+      "txid": "698c668492fd8557f2d5b55a620aff10f0c3fa65e952f5f65f2b6ad822df99c2",
+      "timestamp": "2026-08-31T16:46:08.535516"
+    },
+    {
+      "kind": "extreme_fee_ratio",
+      "fee_ratio": 0.3747,
+      "txid": "629f82fdc55b8fe7cac52757e54e3552a5e5e8842698749f4fdf63aca5d125d2",
+      "timestamp": "2026-09-06T21:52:55.002420"
+    },
+    {
+      "kind": "very_large_amount",
+      "amount": 809.57420664,
+      "txid": "9c1b27f86bd45d64ef450ca9a3f03f552f7964550ece51f67a11ebd13f43621d",
+      "timestamp": "2026-08-28T23:58:27.974010"
+    },
+    {
+      "kind": "unusual_script",
+      "script_type": "OP_RETURN",
+      "txid": "4a025b7cd360560c9848206a5edbf1445b3a8ebe93afb02277d6b59c343468d5",
+      "timestamp": "2026-09-19T16:11:21.061645"
+    },
+    {
+      "kind": "rapid_successive_small",
+      "burst_size": 18,
+      "txids": [
+        "90c64f1862803c5ae96515e0909d743bde6d6ed4c30956c789923d06c91afc74",
+        "d6ad6f76b12509954dac19877fd1d5424d94dcdfe61f19bd5215ba9849ddecff",
+        "5923033bfc5e5faabd0582a48d0448675ef328d0f7a76d443aeaefffcd197380",
+        "15d6f6558207724d681d9c6055b0c29557399a5bb566d74eb17d6f22b0cf346f",
+        "c2c53c7beda2371b82d569373a92c691cd3c1a0e5061490e145229796ee13eae",
+        "5ddf4f09396e754c1a6417bb19f98649bd300539b4e164c9c5d2222c6d646b51",
+        "accffc1d947e557e2c384b354257fd9a1c8bb1b66a7a6199828619acd78c29bc",
+        "58f37089d69a522b36b13561c739835fbaa106d5d52cd1979d2649c055ed7601",
+        "dff51d04dc70024909698dc682ec178eb350bddd5e61e846a976b321e962af9c",
+        "0722b0de9cfdb1f5208d2f995ae50c170b6d1ebfc616b6be98a8afbe79aea268",
+        "05f2d7b715f1487a4742b9039b0e1b4bebfdf56aa9cdfd6157e745710b84a578",
+        "4187f8c1ca744175393307929aaff6c954b59beb971b27fbae8c1cd932e272b8",
+        "b25ae336e4edb0860d25120ed9f3748dab8b9e6a66a9381d9560d915073ffd31",
+        "6a20952efad59712acf3dcbe75326600b5871fbd936704935333df16f34ef3cc",
+        "523f70dc3cfccf41678c7c7c73ddb4ffa9fb24d7f1b00a99f177104c9f25eaff",
+        "57c583ce1c54e9f7f26321423560fb0d0216c3052aedcbb23d6fef8754b4a917",
+        "40ed7742a9099ce7469798491317e9cc5cf01ce0b20e574cf89b07a6e5fb2a5c",
+        "2c5c3e2fba466dd5a7a551b0230abd631626821bc57a9e3eef712aa24b7374d2"
+      ],
+      "txid": "90c64f1862803c5ae96515e0909d743bde6d6ed4c30956c789923d06c91afc74",
+      "timestamp": "2026-09-19T19:13:17.425195"
+    },
+    {
+      "kind": "extreme_fan_in",
+      "n_inputs": 18,
+      "txid": "0ed641fa4ca1784d9246266e2d12d9a7615deead05a89700e7de0ced6059f0b8",
+      "timestamp": "2026-09-10T02:08:44.336473"
+    },
+    {
+      "kind": "extreme_fan_out",
+      "n_outputs": 9,
+      "txid": "4a6f70dd5b3de227b0781c78f9933c4b6dfaf92c0329e601330bc374e6eb12bb",
+      "timestamp": "2026-09-16T17:24:01.783529"
+    },
+    {
+      "kind": "extreme_fee_ratio",
+      "fee_ratio": 0.2367,
+      "txid": "1c239d26ce8ab57224e39d023b51848f403f64b51e59d07d5c58c9d5da92769e",
+      "timestamp": "2026-09-12T01:04:55.118673"
+    },
+    {
+      "kind": "very_large_amount",
+      "amount": 849.43664565,
+      "txid": "9dde3520d016dfa8d3e1982a3072a4040478244ead5f1c3398ad6dddf6f95d80",
+      "timestamp": "2026-08-28T13:10:31.931780"
+    }
+  ],
+  "entity_clusters": [
+    {
+      "group_id": "EC-01",
+      "members": [
+        "bc1q9j56kyaaa6mf94nurktesajn3cvdyufd6nx7ph",
+        "1APygVgRgW5mpvt1Kj7gGFZQg26Uuy7Pnu",
+        "bc1qcx3v7qxpyk5jvuugff3emymjxg62acz3mlmvuc",
+        "1KbC76vVCfXwwpeQjpSyttBRJqdzetLPJv",
+        "3MbF9dFrG5YKQbmQMiDsGHGJnxzA7iXhJ1",
+        "bc1qjaj2q5dkv9nkzmutx65jc7frxz8x94lvnevmuu",
+        "1AgHhBn4swRvAFWBf48aWAgYNuQtWfveb7"
+      ],
+      "linked_to_seed_wallet": true,
+      "receives_peeled_value": true,
+      "note": "wallets that repeatedly spend together (common-input ownership); the first group is a laundering ring that also touches a seed wallet"
+    },
+    {
+      "group_id": "EC-02",
+      "members": [
+        "1ChDT2aFNY2AWdPQFzjxSRxrX6tMrUKXB8",
+        "1J6Z4iMCdyvBwUBcJVQsas8kpEQ4jDGWbe",
+        "bc1pzwh69zkvj38ecr0827yvwqncwjp7w7yjhd2xkkh4ltxykj32pxcssph449",
+        "bc1phaxm4jysgg86z7v59wfqm28aft8me8cxf97p2gypz0vus36qyxwsvds6lz",
+        "1LzJsJgEeUEBp4zYRMDDyLnqgeypXQcbLB",
+        "bc1qejraczzhlv2lwfvcalfz04n7crlxn3tzmtd0py",
+        "1BH34o7i7t3tWnvqpHx9WZHWGmUtNhDSjC",
+        "1JVvsTTE9NUoNhYA6DSWDPTXdfV8CL9CCy"
+      ],
+      "linked_to_seed_wallet": false,
+      "receives_peeled_value": false,
+      "note": "wallets that repeatedly spend together (common-input ownership)"
+    },
+    {
+      "group_id": "EC-03",
+      "members": [
+        "bc1qscd27uje8zu5ssp3pqrfu9cw7zv23ex4vm67g7",
+        "1F1MoPvdyoRQuN7pE8r31EhMdNduiN3rdR",
+        "15JqnJD2ujKH8AXWApCU8dgXSdgofNy9Sy"
+      ],
+      "linked_to_seed_wallet": false,
+      "receives_peeled_value": false,
+      "note": "wallets that repeatedly spend together (common-input ownership)"
+    },
+    {
+      "group_id": "EC-04",
+      "members": [
+        "12hCwGC4sa1NFjK6F3KiZiXotHaCfX7f53",
+        "1AAng4ahJJvZwsa2YwXfcp2u7xfQW5FiFJ",
+        "1H7wEUjCFPrLHikpijgoBGCT6oph4Xvpkz"
+      ],
+      "linked_to_seed_wallet": false,
+      "receives_peeled_value": false,
+      "note": "wallets that repeatedly spend together (common-input ownership)"
+    },
+    {
+      "group_id": "EC-05",
+      "members": [
+        "3Gfnn9rB1GuAQkvYdRo3TiKbrc4YLA6aYx",
+        "1GHY84oCroGmrMyjWBdyxXpymPpUR3TD11",
+        "1NEa2VB8NxYVsoFcgYzWb7eiunp3oaEAgm"
+      ],
+      "linked_to_seed_wallet": false,
+      "receives_peeled_value": false,
+      "note": "wallets that repeatedly spend together (common-input ownership)"
+    }
+  ],
+  "correlated_network_records": [
+    {
+      "txid": "3820c404a070efc618512be7827b1e65d65df6e2a32c524bd179adb0ac08522f",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -73.14,
+      "matched_by": "time_window",
+      "tag": "cluster_group_4_sweep_0"
+    },
+    {
+      "txid": "4f40b2349f51be2c073e9ffd64d0e2cbd65285172213b8e64ee2f4c02455e567",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -59.29,
+      "matched_by": "time_window",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "0051389e98a268d4a4fa1e401524984bb8882b9881af6aa03edbd7f91a4f8fdd",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -62.38,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "2c5c3e2fba466dd5a7a551b0230abd631626821bc57a9e3eef712aa24b7374d2",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 40.36,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "a73ebda955ad0a9b8578ed623e8e34d065a545223983c7786f04f2399f7993e6",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 60.02,
+      "matched_by": "time_window",
+      "tag": "peel_chain_0_hop_2"
+    },
+    {
+      "txid": "f4626245435043ad05d1bb0fee332740b01c40037e027952498801453bfa2c3c",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -44.45,
+      "matched_by": "time_window",
+      "tag": "peel_chain_1_hop_3"
+    },
+    {
+      "txid": "5923033bfc5e5faabd0582a48d0448675ef328d0f7a76d443aeaefffcd197380",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -32.36,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "bfa7f14a2088c71c76f1cdd6e322873bf51b8595a6e4476fa2737b0d88f848c6",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 60.73,
+      "matched_by": "txid",
+      "tag": "peel_chain_1_hop_2"
+    },
+    {
+      "txid": "0b643c45feeeed1eeec94389d3b872cf6f0c8d264c1ad90f9819d77fc0a5671f",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -41.79,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "698c668492fd8557f2d5b55a620aff10f0c3fa65e952f5f65f2b6ad822df99c2",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -48.31,
+      "matched_by": "time_window",
+      "tag": "anomaly_fan_out"
+    },
+    {
+      "txid": "4a6f70dd5b3de227b0781c78f9933c4b6dfaf92c0329e601330bc374e6eb12bb",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": 72.28,
+      "matched_by": "txid",
+      "tag": "anomaly_fan_out"
+    },
+    {
+      "txid": "9c1b27f86bd45d64ef450ca9a3f03f552f7964550ece51f67a11ebd13f43621d",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 53.0,
+      "matched_by": "time_window",
+      "tag": "anomaly_large_amount"
+    },
+    {
+      "txid": "114fee540ab66699192469bfb407d9d9da56945a0ff703781988135fc2b0bef0",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -102.18,
+      "matched_by": "txid",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "d0a64995bf430ab83bb7ad892c27aaa97abcde9d995a097797e8cff181c37082",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 30.45,
+      "matched_by": "txid",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "46d3e66a4f41262940aaf0379f018b4ff5c8fa623c1c029d25528de13b04afa3",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 55.78,
+      "matched_by": "time_window",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "d6ad6f76b12509954dac19877fd1d5424d94dcdfe61f19bd5215ba9849ddecff",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -90.57,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "5ddf4f09396e754c1a6417bb19f98649bd300539b4e164c9c5d2222c6d646b51",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 88.07,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "46ea467ef414126bb17c51bfbcde8f0002dfa16984f73312cc93b84ba31570b9",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -67.82,
+      "matched_by": "time_window",
+      "tag": "peel_chain_3_hop_2"
+    },
+    {
+      "txid": "ca1a5cb895f8150ad5eda1d7ab418caf77db17405ab5cce365719583cc506800",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -100.05,
+      "matched_by": "txid",
+      "tag": "peel_chain_2_hop_3"
+    },
+    {
+      "txid": "4972295c6d76c8a9a62926c4f3aa84b6c4f8135e1c7eaf9f3c502bc3d66bfeef",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 49.49,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "011e3f4a7a30d56da3ab081ccd84ae77b143ad861b126f620f4e4521866978d1",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": 66.06,
+      "matched_by": "time_window",
+      "tag": "cluster_group_2_sweep_1"
+    },
+    {
+      "txid": "96c11f145fa179797ee97fb1eeab0dc6f26303b900f0d6f15427f159aee28d92",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -75.57,
+      "matched_by": "time_window",
+      "tag": "peel_chain_2_hop_0"
+    },
+    {
+      "txid": "9431fdb60fa60547e79274a4e645ec3a2282093870b1c428a95351e0a7128b0c",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -73.15,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "4a78d0bb178f290f023a280808ea206a8f3c3f28c4cad082952927a37b9e96d8",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -55.05,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "4a025b7cd360560c9848206a5edbf1445b3a8ebe93afb02277d6b59c343468d5",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 33.08,
+      "matched_by": "time_window",
+      "tag": "anomaly_unusual_script"
+    },
+    {
+      "txid": "8df923b97b9041a33397a4d2e7cc9e83275f01de52f5a760455b00f756aa89cf",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": 49.45,
+      "matched_by": "txid",
+      "tag": "cluster_group_0_sweep_1"
+    },
+    {
+      "txid": "f0cfb3b704b1c081e0a8312ca3f9d3421e09617bc2fe8945a2d43031a1d6efb2",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": -36.11,
+      "matched_by": "time_window",
+      "tag": "peel_chain_4_hop_5"
+    },
+    {
+      "txid": "4d478150d2b9e2bd21028d5030d53ea183c5224ef539755c56f0f393c8c69e6f",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -56.31,
+      "matched_by": "time_window",
+      "tag": "peel_chain_1_hop_5"
+    },
+    {
+      "txid": "e8d93e4625cd87ca5d93d7543bc1c39328ae74264e497103de0711d876d609c0",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 91.09,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "7b91f315450ac5d4a1a04ab7ed2c9e2e339a9a9057b3849f5d7f69c1fb5f23eb",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 31.96,
+      "matched_by": "time_window",
+      "tag": "peel_chain_0_hop_1"
+    },
+    {
+      "txid": "accffc1d947e557e2c384b354257fd9a1c8bb1b66a7a6199828619acd78c29bc",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 68.07,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "3872c32a1d9e0801b21efb69bc260f1b14494dc9da6f9273be8c74517d450cec",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -66.65,
+      "matched_by": "txid",
+      "tag": "peel_chain_4_hop_6"
+    },
+    {
+      "txid": "46d906196d588680f3bdbc69ada733aacb41b56442568b002f3d76683bd6a081",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 39.61,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "4187f8c1ca744175393307929aaff6c954b59beb971b27fbae8c1cd932e272b8",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 42.22,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "c233b007f09d97694d23f26ec1b37855f8a6ad3941688fb2d58497c2ef0f5099",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -118.11,
+      "matched_by": "txid",
+      "tag": "mixing_coinjoin"
+    },
+    {
+      "txid": "05893cb6b2445436b82c2dd05c586222d9254c9956a5f4757c6e4ff6abfac130",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -47.29,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "754747580c3e0215fbc32c6aeedc9c49cf7ce436e4f8ab6f16c3fa25c547af21",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 99.47,
+      "matched_by": "txid",
+      "tag": "anomaly_fan_in"
+    },
+    {
+      "txid": "d0c7bd16a86d65fb8403c42bf27ad0aee3cdc2a126e66988eff36590e9969e2e",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": -72.96,
+      "matched_by": "txid",
+      "tag": "cluster_group_1_sweep_2"
+    },
+    {
+      "txid": "5bf7baafe9a4aa543ae3688b33448f7bbea666338ddb6e5b3af165b09fbbedb0",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -77.08,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "c808476ef92d6b6c589a738ad9be0b930afb041bca441cce6527c325b91ddce2",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 36.91,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "ae4b0ff36c5371c7c7829d420982082ab223ddc9c5a1ef0321a4b8da89ed80f7",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": -114.66,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "523f70dc3cfccf41678c7c7c73ddb4ffa9fb24d7f1b00a99f177104c9f25eaff",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": 74.31,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "396d3bbd6b40060f50ef0d8560aefc899fa1de6bcda7bdddd7bef489df2e5334",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": 97.17,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "5e26a3d774559235a12a134ece23666fbf788248f142553b6736bc8211cf2c27",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 48.07,
+      "matched_by": "time_window",
+      "tag": "peel_chain_4_hop_0"
+    },
+    {
+      "txid": "ee71f9309f7be4241bdd161a737f9182db55283e628a1ed0d6c89063c164aa34",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -58.83,
+      "matched_by": "txid",
+      "tag": "peel_chain_2_hop_4"
+    },
+    {
+      "txid": "d7eb765e910a97922d586cf9f1dab881604612825eaf21b7e483713dadd549f7",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 34.68,
+      "matched_by": "txid",
+      "tag": "anomaly_extreme_fee"
+    },
+    {
+      "txid": "385e6c962ae0f065d93ec52053823f18df18c89eef78982b36ac617abda28985",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -51.22,
+      "matched_by": "time_window",
+      "tag": "cluster_group_4_sweep_3"
+    },
+    {
+      "txid": "05f2d7b715f1487a4742b9039b0e1b4bebfdf56aa9cdfd6157e745710b84a578",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 35.79,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "a67625cacab48e0f291562bbb730a7eaadc4b97f2ff35a927d9f8bdf3f753c5b",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -51.37,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "b76ce95f9d48460831a034693c16822cbdd170428350e7c45c8ea9edc09b06c3",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -95.15,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "9927504c70dbd2788eb6d98d3cf74193dbeefeb600428c56a7ea391a035a1f12",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": -60.28,
+      "matched_by": "time_window",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "cbb63b4d871708567a89746a36e30a40175c674cddd2d30f9f34cc63068b8f62",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 76.75,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "a5419f74f0376356c0faab142638c5904d8b12a070dadc13858f12a57575e6e8",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 58.64,
+      "matched_by": "time_window",
+      "tag": "cluster_group_1_sweep_0"
+    },
+    {
+      "txid": "b8a9519022b448d35de0caf692d14b03549c88cc50c2a4188555a163b87e2718",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 60.02,
+      "matched_by": "time_window",
+      "tag": "cluster_group_2_sweep_2"
+    },
+    {
+      "txid": "dd629d3f99fe1fce2dbe2adafcf49b2a4e86484a05370b8d9298b3cbf7593911",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": -58.96,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "57c583ce1c54e9f7f26321423560fb0d0216c3052aedcbb23d6fef8754b4a917",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -74.37,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "628eb0b4a31ff7e06a11c703d403a341fa2908e81c7e45958b070f096f23b235",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 70.97,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "475c3f3048c6d88d74a030036e1d273799c2352e30d849bc8fd93a3bb119ec7d",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -32.74,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "74ad0dad76e63ec6684107a78d298fec71cba2e2425823e3e8063235ab8a5f63",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -67.59,
+      "matched_by": "txid",
+      "tag": "peel_chain_4_hop_3"
+    },
+    {
+      "txid": "e277ccdb0ffe3c9196e15e6706ce20caa99cc9872c5c6d528137ab260c42b1e8",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -66.22,
+      "matched_by": "time_window",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "5ce05fe681798521c66f80e0157adef0bbbb4f7e35119e470b3ad88f9efa2ed7",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": -56.01,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "71d1513ce27e9eafafec7499c1c086d5fd9acbc482780adfd386e2a98d054fe3",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 79.08,
+      "matched_by": "time_window",
+      "tag": "peel_chain_2_hop_2"
+    },
+    {
+      "txid": "2422c40792efb1b4ee2d03c7cd67a96027c8b1469f77a43a12e6eaf86a354a44",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -57.23,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "2d6a44514bec411d026356069733e591bd321fdb98a5a7fc77a467064370e00e",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 58.65,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "629f82fdc55b8fe7cac52757e54e3552a5e5e8842698749f4fdf63aca5d125d2",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -70.44,
+      "matched_by": "time_window",
+      "tag": "anomaly_extreme_fee"
+    },
+    {
+      "txid": "e9019f50fd525698dec24614ac8e6c22938a422db949c076318f446eb2b0ab26",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 67.52,
+      "matched_by": "time_window",
+      "tag": "cluster_group_2_sweep_0"
+    },
+    {
+      "txid": "9dde3520d016dfa8d3e1982a3072a4040478244ead5f1c3398ad6dddf6f95d80",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 101.67,
+      "matched_by": "txid",
+      "tag": "anomaly_large_amount"
+    },
+    {
+      "txid": "20f650974435a99450a0a2113e29463f911106b7d1cb8e9ec0e7ce7eb01bfd52",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -53.92,
+      "matched_by": "time_window",
+      "tag": "cluster_group_4_sweep_2"
+    },
+    {
+      "txid": "4eca4d29c8c3220359ad76b2fc7f01e34c6377068fe0fe24fb179353ba73d35a",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -49.46,
+      "matched_by": "time_window",
+      "tag": "cluster_group_3_sweep_2"
+    },
+    {
+      "txid": "f5280db4be80f7509648d854af703f83574b08eb60ca0b384c7b9fa7fb8510ab",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 70.72,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "83a2c84879a032e053cb8bc455773da35e12741740148e3803120fde7512886b",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -88.35,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "0ed641fa4ca1784d9246266e2d12d9a7615deead05a89700e7de0ced6059f0b8",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -66.7,
+      "matched_by": "txid",
+      "tag": "anomaly_fan_in"
+    },
+    {
+      "txid": "7b8886d735108c7beb2a82d66973f307ccec99693d3d995f75ca795d7dd846f8",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 32.51,
+      "matched_by": "time_window",
+      "tag": "peel_chain_3_hop_3"
+    },
+    {
+      "txid": "16a0a41d3dd3551f2b52e4db7a24de241a550812b7f84471a4a4b2a71fb6d4aa",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 52.03,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "c072dcb1b0956491c89038cb12565d9f72cd3998756e854e639433840fde384e",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": 42.58,
+      "matched_by": "txid",
+      "tag": "peel_chain_1_hop_4"
+    },
+    {
+      "txid": "a4398f8d46251a979024842e375f5b94dba7672bbd92a46dfb39ca00e93885d2",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -79.99,
+      "matched_by": "txid",
+      "tag": "cluster_seed_link"
+    },
+    {
+      "txid": "c146c44a50b9dc6a108c9c9e1657310b86dd91bc7dca2d6635e05bcd03a32198",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -44.49,
+      "matched_by": "txid",
+      "tag": "anomaly_unusual_script"
+    },
+    {
+      "txid": "08745a3af49f10cb96dc9524783751d24a683ecc36d43648d266ffa0edd313cf",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -36.04,
+      "matched_by": "txid",
+      "tag": "peel_chain_2_hop_5"
+    },
+    {
+      "txid": "1c239d26ce8ab57224e39d023b51848f403f64b51e59d07d5c58c9d5da92769e",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 77.71,
+      "matched_by": "time_window",
+      "tag": "anomaly_extreme_fee"
+    },
+    {
+      "txid": "c14c36fffffe63c9b5fbaceb3ae5467e68fdf921ed66bb800c6186fba4042844",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 50.07,
+      "matched_by": "time_window",
+      "tag": "peel_chain_3_hop_1"
+    },
+    {
+      "txid": "66f16dd5b9e690441d755cd4849026b83a7888abdad235374162cff9ec0fd543",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -75.38,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "0e97956a5985f9d59a080867810ead286fb7f5101a7b4ada6062af26bd842aff",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -97.53,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "b25ae336e4edb0860d25120ed9f3748dab8b9e6a66a9381d9560d915073ffd31",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -47.25,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "831e9a98cfd1ce24e0b9fdff8af2ca30cc668972f6895c813d24e2ce1dc8f262",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 44.84,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "3c31331828f11ef24aa8729f5b21500e2054bd74754413bdeffb497279669753",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 107.77,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "de86c630734a94649f81f7aad53b3c46c04924fc0c8e04c2bd73f521b0faa25e",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -41.83,
+      "matched_by": "time_window",
+      "tag": "mixing_coinjoin"
+    },
+    {
+      "txid": "73ae343dc0c89405cdfbf5d9a0b9ebb0922526ba603284123b0ed99b48a9e68b",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 42.76,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "fb35b110eb39f6fe69cd5d416a60bd7eb9e7e9a1e4a3abee314b66a1bc32b79e",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -44.53,
+      "matched_by": "txid",
+      "tag": "anomaly_large_amount"
+    },
+    {
+      "txid": "6a20952efad59712acf3dcbe75326600b5871fbd936704935333df16f34ef3cc",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 76.75,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "19b8344b51933dde414eab4c27cd95e0af4688a4b6c2cc020619c5ed79532b2f",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 95.81,
+      "matched_by": "txid",
+      "tag": "mixing_coinjoin"
+    },
+    {
+      "txid": "c2c53c7beda2371b82d569373a92c691cd3c1a0e5061490e145229796ee13eae",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -72.4,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "af6ce685b6048a35f836d550b378d762aa30f8fad53b421afa50005a36bcaf51",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -52.48,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "3fe77e6c3021bd460b52c5714bd35206f2ef531d3ff80e7f4581ff1ee8e4f61c",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 35.95,
+      "matched_by": "time_window",
+      "tag": "peel_chain_4_hop_4"
+    },
+    {
+      "txid": "e1677a8b183c394c48061eb2bfb340f9d30fcb127db0f4e3e1a1739b8a4a01d0",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -100.19,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "536a79604b4e7adb1e6ab355f5130af53b4b6a784917064cb9add338aa802d20",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -89.3,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "838fcfa7d7ad17a4932e2dd95deb370dd549bddcc843f175ded7d25c24cae071",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 119.29,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "1e6d310533c31808c4f20ebd7c440fd21cb039f6b91ff9799567bcbef521ac0d",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -81.25,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "b637ebeaff86f5f4f09d76ee5892e074a383b468359dc3e00e99b419451e2f17",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -71.11,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "aa0faaf6c80946943e97ec4a492d6bb33f660e8b966a00182c4899613a3172d2",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": -100.5,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "0d8b9be1ca512b782d015284f6ff2a7dcb2d725621cec2a771c5fbc0535bce15",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -84.46,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "9a88b09cda1428f11be2621b20602cb3861c79e656833c083f539071cd9b876e",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 41.7,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "e84baba2934311f82e48fbade240c7d4640aea8b59bab8aaa265d5b5231c8ad4",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 79.11,
+      "matched_by": "txid",
+      "tag": "peel_chain_3_hop_0"
+    },
+    {
+      "txid": "40ed7742a9099ce7469798491317e9cc5cf01ce0b20e574cf89b07a6e5fb2a5c",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 41.76,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "b845fd85db0d8ec4996360f51cc4c9b352ed0249c13870dba4eed3ff24cfe693",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -62.84,
+      "matched_by": "time_window",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "9eddbaf0c0608fafb03a0b1645dd49e9bb08739771e641694b1acae863a9c907",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 33.17,
+      "matched_by": "time_window",
+      "tag": "peel_chain_2_hop_1"
+    },
+    {
+      "txid": "106e52805a8c93dc8f05a1399228f69cafd48c266c813cfef06db948e265d388",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 86.13,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "0722b0de9cfdb1f5208d2f995ae50c170b6d1ebfc616b6be98a8afbe79aea268",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -47.65,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "dff51d04dc70024909698dc682ec178eb350bddd5e61e846a976b321e962af9c",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -86.27,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "0deb17c8e543b0611790e345461381d51bc2d84ef46ee13aa19e41d1a7d14816",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 48.02,
+      "matched_by": "time_window",
+      "tag": "peel_chain_0_hop_3"
+    },
+    {
+      "txid": "f5228ec5c621fce964633be28ecf396133450f6e1104bc229a9c8cc06e2cb8d8",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": -31.53,
+      "matched_by": "time_window",
+      "tag": "cluster_group_3_sweep_0"
+    },
+    {
+      "txid": "77e266689c34cbf112071854e5b1423c50ef37ab588526897a27c4671e239b46",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 63.71,
+      "matched_by": "txid",
+      "tag": "peel_chain_1_hop_6"
+    },
+    {
+      "txid": "fba4c6d7fc5ef37ac33b42eabcfc4d7dbf8c8f64847632a1a7e5a0a6c370f549",
+      "src_ip": "162.247.74.201",
+      "offset_seconds": 42.63,
+      "matched_by": "txid",
+      "tag": "peel_chain_0_hop_4"
+    },
+    {
+      "txid": "4df6dfbfc012061b28869ccc801d424ffb860504c04afb233d6ffb5b699a7d77",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 77.94,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "b683d1de08f49e0d87bb13faad552364006caeb5e2e2e8f250e7daadb07e0314",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -58.63,
+      "matched_by": "time_window",
+      "tag": "cluster_group_3_sweep_1"
+    },
+    {
+      "txid": "a71d0e80d4053781ef3c1bb247d56067c4e9d871ed8058dfea69e7dd9fb411d4",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": -75.8,
+      "matched_by": "time_window",
+      "tag": "cluster_group_4_sweep_1"
+    },
+    {
+      "txid": "f479582ddc5e0c0d2f48443ec4d0909c12105f8516df4d5dae83d2612008d592",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -49.45,
+      "matched_by": "time_window",
+      "tag": "seed_cashout"
+    },
+    {
+      "txid": "58f37089d69a522b36b13561c739835fbaa106d5d52cd1979d2649c055ed7601",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": 84.71,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "90c64f1862803c5ae96515e0909d743bde6d6ed4c30956c789923d06c91afc74",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": 62.92,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "0ff6a83c5175e6c5bdd0a3935caf08d1634623527e6b984e1c78987458aa23d8",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 73.9,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "1372976d8b32dcf09278c4890ab3e1ad6cf5792478ec866ffec5abba0653dd84",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -36.0,
+      "matched_by": "time_window",
+      "tag": "peel_chain_1_hop_1"
+    },
+    {
+      "txid": "121f44960a63d54a98b9d86eaeb28011df23209343752db6954fa0a322bfc188",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": 104.97,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "00bafd9beadbddae94278ff7d3425c27c0f71098749fa0ece32bf32bf6258112",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -65.51,
+      "matched_by": "txid",
+      "tag": "cluster_group_1_sweep_1"
+    },
+    {
+      "txid": "9d7cecb52b8ce0c3f69f04c2e610bf705ea251afda4790d521e6da5bb2987de9",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -40.11,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "2c1edeea640f18eea09a4e0e773a445353c1d250d0e317ee8da63e00d1c81d15",
+      "src_ip": "103.251.167.20",
+      "offset_seconds": -77.53,
+      "matched_by": "time_window",
+      "tag": "peel_chain_1_hop_0"
+    },
+    {
+      "txid": "dd996df08a1fcd056ade60e479130c25985c3639a91c09ee3cca47a3c9f51521",
+      "src_ip": "5.199.162.33",
+      "offset_seconds": -85.87,
+      "matched_by": "txid",
+      "tag": "cluster_group_0_sweep_0"
+    },
+    {
+      "txid": "60439668c9c1e4fb5782932325f15c2e1620297e571b2bda6bf98b08236cb49a",
+      "src_ip": "185.220.101.77",
+      "offset_seconds": -71.1,
+      "matched_by": "txid",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "8ae10d0887ad0fadd80396224520ecfbfd1cac0e6973f6939a8c66de5a016c90",
+      "src_ip": "185.220.101.42",
+      "offset_seconds": -67.89,
+      "matched_by": "time_window",
+      "tag": "seed_funding"
+    },
+    {
+      "txid": "1f384c83b9adea5ad9b9abc766007ac0e7ad70c1be34ed2049dd9af1ff5f0e45",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 80.2,
+      "matched_by": "txid",
+      "tag": "peel_chain_4_hop_2"
+    },
+    {
+      "txid": "342f31d258f6168f3f233161c95b3812cc96206ae2f43a3e5bb37a3cfca73934",
+      "src_ip": "45.155.205.233",
+      "offset_seconds": 70.47,
+      "matched_by": "time_window",
+      "tag": "peel_chain_0_hop_0"
+    },
+    {
+      "txid": "5980e7ec6f2846624bc0d74f1155835567235c0815e275dc5c8161898b8a4a25",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 101.31,
+      "matched_by": "txid",
+      "tag": "peel_chain_4_hop_1"
+    },
+    {
+      "txid": "15d6f6558207724d681d9c6055b0c29557399a5bb566d74eb17d6f22b0cf346f",
+      "src_ip": "91.219.236.17",
+      "offset_seconds": 60.41,
+      "matched_by": "txid",
+      "tag": "anomaly_burst"
+    },
+    {
+      "txid": "5a5e6d3167c76607d62c774863eae92c4c74442f3e250cec871ba67365da6e7d",
+      "src_ip": "204.13.164.118",
+      "offset_seconds": 62.73,
+      "matched_by": "txid",
+      "tag": "seed_cashout"
+    }
+  ],
+  "benign_transactions": [
+    {
+      "kind": "exchange_sweep",
+      "txids": [
+        "1196448adbe602505eaf282394d89ad8c479a97921e40c563b6b763b5dd93dab"
+      ],
+      "timestamp": "2026-09-12T19:45:17.843296",
+      "note": "exchange consolidation: many customer inputs, one hot-wallet output"
+    },
+    {
+      "kind": "exchange_sweep",
+      "txids": [
+        "6e623aa869de17a9dd63c634637bd0ec1df6dd041d020502a3aaa3a9d497d6fe"
+      ],
+      "timestamp": "2026-09-17T05:53:41.195009",
+      "note": "exchange consolidation: many customer inputs, one hot-wallet output"
+    },
+    {
+      "kind": "payroll_fanout",
+      "txids": [
+        "8ee4ea5dff0bd1f80124080e10fb4a350169c45bc2cdf9084727e5778d0d7055"
+      ],
+      "timestamp": "2026-09-19T16:20:33.548178",
+      "note": "payout run: one funding input, many equal outbound payments"
+    },
+    {
+      "kind": "payroll_fanout",
+      "txids": [
+        "d05f49bf68b022c7b68158e89444c18d4a21f29f73e0decfb189624e6728f7fa"
+      ],
+      "timestamp": "2026-09-08T21:36:47.101647",
+      "note": "payout run: one funding input, many equal outbound payments"
+    },
+    {
+      "kind": "batching_wallet",
+      "txids": [
+        "8b4d58627e1d07b6db0ab46a3e6c8662b21673c6491b12b8de34bf9cc4e2c34c"
+      ],
+      "timestamp": "2026-09-19T08:48:19.065357",
+      "note": "batched payment with change: 90/10 split, so it *looks* like a peel hop"
+    },
+    {
+      "kind": "batching_wallet",
+      "txids": [
+        "3e967a5b914ad61eb75f44192158674dd7af77bb8db47abc3b838cf5c11b4c2f"
+      ],
+      "timestamp": "2026-09-01T06:35:57.690267",
+      "note": "batched payment with change: 90/10 split, so it *looks* like a peel hop"
+    },
+    {
+      "kind": "batching_wallet",
+      "txids": [
+        "7478594f8f802dfe0e8be7fccc2d9f45b2c5d34f85339c06f5d07d9a5dab1d0d"
+      ],
+      "timestamp": "2026-09-10T04:15:24.464006",
+      "note": "batched payment with change: 90/10 split, so it *looks* like a peel hop"
+    },
+    {
+      "kind": "self_transfer_chain",
+      "txids": [
+        "2640638c3f7bd3caa6e4a3de4c8eac55d8b37fd51f97677b73f7a5ebbeeda816",
+        "9f45c1b1ad06c4d52e89a49c2077c878f7ba26426c9099026f028a79cc35ddc8",
+        "15f7ab77198bca47cd0c13d790d184a8fef6b07276a379b16b51d0a395b4523c"
+      ],
+      "timestamp": "2026-09-19T07:47:50.222039",
+      "note": "wallet housekeeping: funds moved through the owner's own addresses"
+    },
+    {
+      "kind": "self_transfer_chain",
+      "txids": [
+        "76a5a226a5aa9205615a4fb281a257b3a00cf949bfe226140c1062711479d2a3",
+        "470172615327fe957b05acc6124668cef6811fbf519c16982d93f8eaf7a62ca6",
+        "08328dd869a6eab90a3fd870f6d74b13f01a6923d1707ec657d81090dd7bd423"
+      ],
+      "timestamp": "2026-09-06T01:05:41.838398",
+      "note": "wallet housekeeping: funds moved through the owner's own addresses"
+    },
+    {
+      "kind": "high_fee_small_amount",
+      "txids": [
+        "4492696ef504e737a0927c72fc2b1c6357ff9f8f9b7a25fd970992e70e3ff926"
+      ],
+      "timestamp": "2026-09-02T05:24:52.951151",
+      "note": "small payment where the network fee is legitimately 6-12% of the value"
+    },
+    {
+      "kind": "high_fee_small_amount",
+      "txids": [
+        "f890689001cae533cf87e3ee119ea0f9238d9c7f21555c1314d6810b4577d51d"
+      ],
+      "timestamp": "2026-08-26T23:58:22.998084",
+      "note": "small payment where the network fee is legitimately 6-12% of the value"
+    }
+  ],
+  "counts": {
+    "transactions": 1200,
+    "network_records": 308,
+    "bulk_records": 1508,
+    "wallets": 517,
+    "peeling_chain_txs": 29,
+    "seed_wallets": 8,
+    "mixing_transactions": 3,
+    "anomalous_transactions": 14,
+    "benign_transactions": 15,
+    "entity_clusters": 5,
+    "correlated_network_records": 132
+  },
+  "wallet_roles": {
+    "34FCvB1o1PJwLvCSkzepx5ztxUz2CVp8ZS": "hub",
+    "377f3k49W8a9cQdE6mk8fuG85vraZR4UtK": "hub",
+    "35QChH7qXqX1QFj62UFy22tX62HiQAAdQf": "hub",
+    "32m2j4VBxUSNs2DEGZC2FuG2zZh6iUNDR7": "hub",
+    "33F9P2dwVoymphKKaPKa5PX64nXgM12bsd": "hub",
+    "39v12oBwMVQGAAfKpVfsmSMNMNzXDFcDic": "hub",
+    "3PGFVB1aPdYYk913yYEWLDxnUnsMMKV5jz": "hub",
+    "3P1zkojnw7jTXhBkqdDFVwvGCrvW1rHs9Q": "hub",
+    "3ECof4fkdwPsS6m3uZFK6Bu7cLp3Wy6KVe": "hub",
+    "35JY96FaXcX1pxzNcjYpwkoTC5NUanMtKJ": "hub",
+    "3Hcr4XGe58QUtKPWvUvrTJSBe7qgxEBz6F": "hub",
+    "3JVKgXcVAznfEB4vCwqdfYCyoehnqp6QFU": "hub",
+    "35Ug6Fdpm3EXrMABLcZpGyMdUM79DsWoLT": "hub",
+    "16eBF78m2it6aiAzeKg2iDFxg4Qz1d883E": "cashout",
+    "1DPS6PnwhhKbWYHpmGZy4dS9Y6XPBxJxVQ": "cashout",
+    "3CBhsCZgay31HDqqesrmNGnka5o8PnLHCh": "cashout",
+    "18fXwPssMLSuR3SL8zPb7RwFgEnicjyHUH": "cashout",
+    "bc1qrqv2smj6d35h0hd6pkk207a9ry8k0wjkdt54uk": "cashout",
+    "34B5sPbwQ5QCMthRftDEQ5tWWSMMfU525Q": "cashout",
+    "1GE1JEhB5aHxnjDQhvHRoR8cLaokyaseBC": "cashout",
+    "116DMD6xEovDwC3y7UFwVSViiG4ygezJRz": "cashout",
+    "166v8NQGRmer1T7mArEVnSri5JE3empqxP": "cashout",
+    "bc1qmyh3rxq34nwrcec7783ez0u5nq9fu9rtjgtdee": "cashout",
+    "bc1qjzz4pm6zxj4mw5pagdjjr2a9f364pmwqavlsu6": "cashout",
+    "bc1pqf6ellusluv39zfks9pjrmjeuyg7z0j7fq58p4vtk3xee7lue6nsj2f9ts": "cashout",
+    "bc1q4tgc6n8w4yd0pcpzgvw7xxa735n52jy6d6zu9f": "cashout",
+    "18x6uPActitdM7bYSDpTXK3du6MWhPxhmo": "cashout",
+    "144sjhBx8UN9oraURr6cmcYFuStJmawoKZ": "cashout",
+    "19d7g3SvnykdromR8WYPxAyRQyEnPut2YR": "cashout",
+    "bc1qttrclckldruea0e8anhrehffl8xv7t0pqw63kh": "cashout",
+    "bc1q9k7wc4wgae5um27ahn8n73pgexe3kcwltrs8gn": "cashout",
+    "1BxfR2sw1XZiBdGyc8uzo7DYdWQVvcrJQj": "cashout",
+    "1Jz7bHehfxJxA6ZfaExfGjHjPG28XWRuhg": "cashout",
+    "bc1ppydesm6chty4qmumlwpp6chxjvcyzza4duqgtmxw3xhm3u9ahj4s3mkxpq": "cashout",
+    "1B2zq9ProFyLawvu1HychLoCiexG13fSUm": "cashout",
+    "bc1q35srz6a27ps6m0l89jweznt83n2sqn2fllftgx": "illicit_seed",
+    "1KNrr2QijZH5Q81U9MQW6raAqVc7aryJS3": "illicit_seed",
+    "1GTx1MHpFJAJA34b66TWSEonCZZZzoxRgg": "illicit_seed",
+    "bc1qcsf8g6hz5xfnrdajvflxv03957cqrexqvlr4hc": "illicit_seed",
+    "3NJZv1sYaucGfN91J414i4U1YxZ9j7aiUx": "illicit_seed",
+    "bc1qsl7glxz370q7guvu6zuwfqtd6n5gcuh9jdsds4": "illicit_seed",
+    "1M6m9iMvXUqWuQtcJ1DySzpzGeav5vAuLT": "illicit_seed",
+    "18n8YK7kXg3UomcgKrB4feUPnK7ZW3SMht": "illicit_seed"
+  }
+}

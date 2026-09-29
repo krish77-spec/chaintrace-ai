@@ -1,0 +1,72 @@
+name: CI
+
+# Proves on every push that a clean checkout - no data, no models, no artefacts - can
+# regenerate the whole system from the committed generator and pass its own contract
+# tests.  That is the reproducibility claim the README makes, so it should fail the
+# build the moment it stops being true.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: dataset contract + pipeline + tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install pinned dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate the synthetic dataset and check it against SIH26146
+        run: |
+          python scripts/generate_sample_data.py --quiet
+          python scripts/audit_dataset.py
+
+      - name: Train the models and run all eight pipeline stages
+        run: |
+          python scripts/train_models.py --quiet
+          python scripts/run_full_pipeline.py --quiet
+
+      - name: Score the detectors against the planted ground truth
+        run: python scripts/validate_detections.py
+
+      - name: Test suite
+        run: pytest -q
+
+      - name: Upload the run summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-summary
+          path: data/artifacts/pipeline_summary.json
+          if-no-files-found: ignore
+
+  docker:
+    name: offline image builds
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      # The one-command path is the deliverable, so build the real image (build context
+      # only - nothing is pushed anywhere) and let the layer cache keep it quick.
+      - name: docker build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          load: true
+          tags: chaintrace-ai:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

@@ -1,0 +1,11 @@
+# Optional add-on. Kept OUT of requirements.txt on purpose: SHAP >= 0.45 pulls numpy >= 2.0,
+# which conflicts with the pinned numpy==1.26.4 / scikit-learn==1.5.1 core stack.
+#
+# The prototype runs correctly without it (src/ml/explain.py falls back to the
+# "importance_surrogate" explainer). Enable real SHAP values with:
+#
+#   docker compose build --build-arg INSTALL_SHAP=1
+#   # or, inside an existing environment:
+#   pip install -r requirements-shap.txt
+#
+shap==0.46.0

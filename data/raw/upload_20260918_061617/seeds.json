@@ -1,0 +1,12 @@
+{
+  "description": "Known-bad / sanctioned wallets used to seed risk propagation.",
+  "generated_by": "src/data/generator.py",
+  "seed": 42,
+  "wallets": [
+    "bc1q8a8flj36770afcvgy3643qjnlfu7k4ca5v0cw6",
+    "1pXntRRjsuiAY39ZeNx7xwV7aW1oATxiA5",
+    "3HNgmSi6wNwkwbRMhnyqYxb3g5GhkKFp6U",
+    "bc1qxu2npz5rjkhmf06t2t9c0lfwasasqaj2yuknms",
+    "3LDRwX7GRdPdKmK2vjSJ1dxkrp4fpYvzzK"
+  ]
+}

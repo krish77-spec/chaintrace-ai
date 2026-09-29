@@ -1,0 +1,43 @@
+# ChainTrace AI - one-command offline demo
+#
+#   docker compose up --build      ->  dashboard: http://localhost:8501
+#                                      API docs : http://localhost:8000/docs
+#
+# After the image is built, unplug the network: nothing at runtime reaches outside
+# the container (synthetic data only, local models, offline GeoIP table).
+
+services:
+  chaintrace:
+    build:
+      context: .
+      args:
+        # set INSTALL_SHAP=1 (env or --build-arg) to switch the top alerts to real SHAP values
+        INSTALL_SHAP: "${INSTALL_SHAP:-0}"
+    image: chaintrace-ai:1.0.0
+    container_name: chaintrace-ai
+    ports:
+      - "8501:8501"   # Streamlit investigator dashboard
+      - "8000:8000"   # FastAPI backend
+    volumes:
+      # persists alert artefacts, the evidence ledger, uploaded files and models.
+      # delete this line to run fully ephemeral (everything stays inside the image).
+      - ./data:/app/data
+    environment:
+      PYTHONUNBUFFERED: "1"
+      CHAINTRACE_LOG_LEVEL: "INFO"
+      # auto  = run the pipeline on start only if no alerts exist yet
+      # always= re-run on every start     never = only serve what is on disk
+      CHAINTRACE_RUN_ON_START: "${CHAINTRACE_RUN_ON_START:-auto}"
+      CHAINTRACE_API_URL: "http://127.0.0.1:8000"
+      CHAINTRACE_API_PORT: "8000"
+      CHAINTRACE_DASHBOARD_PORT: "8501"
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
