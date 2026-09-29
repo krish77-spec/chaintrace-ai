@@ -108,7 +108,7 @@ checkout — no data, no models, no artefacts:
 1. `generate_sample_data.py` + `audit_dataset.py` → the dataset still satisfies the SIH26146 contract.
 2. `train_models.py` + `run_full_pipeline.py` → all eight stages still run from scratch.
 3. `validate_detections.py` → precision/recall against the planted ground truth.
-4. `pytest -q` → 65 tests.
+4. `pytest -q` → 67 tests.
 5. a second job that builds the real Docker image (nothing pushed), so "one command" stays true.
 
 > Two bugs were only ever visible in CI, which is the argument for having it: `pytest` was missing
@@ -122,12 +122,21 @@ checkout — no data, no models, no artefacts:
 
 A hosted copy starts from a clean checkout, which means **the dataset is there but the artefacts are
 not**. On Docker the image build handles that. On Streamlit Community Cloud there is no build step,
-so `app/cloud_app.py` does it in-process:
+so an entry point does it in-process:
 
 ```python
 ensure_artefacts()                       # src/bootstrap.py - ~3 s, no-op when already warm
 runpy.run_path("app/dashboard.py")       # then the console, unchanged
 ```
+
+There are two entry points and they share that one implementation, so they cannot drift:
+
+| File | Why it exists |
+|---|---|
+| **`streamlit_app.py`** (repository root) | the filename Streamlit Community Cloud offers as its default main file, so the deploy form can be accepted as it comes |
+| `app/cloud_app.py` | the same thing beside the console, for a host that prefers it there |
+
+`app/dashboard.py` stays the console itself. Docker and a local checkout run that directly.
 
 `src/bootstrap.py` generates the dataset if it is missing, runs the eight-stage pipeline once and
 stops. The pipeline fits its own models as it runs (`detect_anomalies` fits and scores in one call),
@@ -159,9 +168,9 @@ nothing, a deleted dataset is regenerated, and the hosted entrypoint renders the
    |---|---|
    | Repository | `<you>/chaintrace-ai` |
    | Branch | `main` |
-   | **Main file path** | **`app/cloud_app.py`** (not `dashboard.py` — the wrapper is what warms the copy) |
+   | **Main file path** | **`streamlit_app.py`** — the form's own default, so nothing to look up. `app/cloud_app.py` is the identical entry point if you prefer it. Do *not* point it at `dashboard.py`: the wrapper is what warms the copy |
    | App URL | pick the subdomain, e.g. `chaintrace-ai` |
-   | Python version (Advanced settings) | **3.11** |
+   | Python version (Advanced settings) | **3.11** — 3.12 also works. **Never 3.13 or 3.14**: numpy 1.26.4, pandas 2.2.2 and scikit-learn 1.5.1 publish wheels for `cp311` and `cp312` only, so pip there would try to build them from source and the build would fail |
 
 4. **Deploy.** The first build installs `requirements.txt` and opens the console; the first page load
    spends about three seconds warming up, and every load after that is instant.
@@ -296,7 +305,8 @@ The image needs roughly 600 MB to run (pandas + scikit-learn + Streamlit + an Is
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| the console opens but every counter is 0 | the warm-up did not run or did not finish | check the app log for the `[chaintrace] warm-up complete: ...` line; the wrapper must be the main file |
+| the console opens but every counter is 0 | the warm-up did not run or did not finish | check the app log for the `[chaintrace] warm-up complete: ...` line; the main file must be `streamlit_app.py` or `app/cloud_app.py`, not `dashboard.py` |
+| the deploy form says it cannot find your file, or its picker looks out of date | the form caches the repository tree, and it only sees repositories the Streamlit GitHub app is allowed to read | reload the deploy page, re-check the repository and branch, and grant access to the repository in GitHub if it is missing; the picker is a text field, so the path can also just be typed |
 | `ModuleNotFoundError: No module named 'src'` on a host | the file being run is outside the project tree | every entrypoint puts the project root on `sys.path` from its own `__file__`, so run one of the repository's own entrypoints (`app/cloud_app.py`, `app/dashboard.py`) rather than a copy of them |
 | the app builds, then reports *no application is running on port 7860* (Hugging Face) | the dashboard bound the wrong port | the Space card's `app_port: 7860` must be present; `entrypoint.sh` picks 7860 when `SPACE_ID` is set |
 | app over its resource limits (Streamlit Cloud) | 1 GB exceeded, usually a much larger dataset | lower `DEFAULT_TX_COUNT` / `MAX_GRAPH_NODES_FOR_EXPORT` in `src/config.py` |

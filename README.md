@@ -6,7 +6,7 @@ SIH 2026 · Problem statement **SIH26146** · NTRO · Cryptocurrency · Team of 
 [![CI](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-3776ab.svg)](requirements.txt)
 [![Runtime 100% offline](https://img.shields.io/badge/runtime-100%25%20offline-success.svg)](#16-offline-guarantees)
-[![Tests](https://img.shields.io/badge/tests-65%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-67%20passing-brightgreen.svg)](tests/)
 [![Docs](https://img.shields.io/badge/docs-14%20parts-informational.svg)](GUIDE.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -112,7 +112,7 @@ python scripts/validate_detections.py      # precision/recall vs the planted gro
 
 streamlit run app/dashboard.py             # dashboard on :8501
 uvicorn src.api.main:app --port 8000       # API on :8000
-pytest -q                                  # 65 tests, ~15 s
+pytest -q                                  # 67 tests, ~19 s
 ```
 
 Or skip the Docker image entirely and let the app warm itself up — this is the same entrypoint the
@@ -120,7 +120,7 @@ hosted copy uses (Part 14), and it generates the dataset and runs the pipeline o
 has to:
 
 ```bash
-streamlit run app/cloud_app.py             # dashboard on :8501, self-healing
+streamlit run streamlit_app.py             # dashboard on :8501, self-healing
 ```
 
 ---
@@ -869,6 +869,7 @@ chaintrace-ai/
 │                                   roll-up) · helpers.py
 ├── app/dashboard.py              ← the four-tab investigator console
 ├── app/cloud_app.py              ← hosted entrypoint: warm up if needed, then run the console
+├── streamlit_app.py              ← the same entrypoint at the filename hosted forms expect
 ├── app/cloud_app.py              ← hosted entrypoint: warm up if needed, then run the console
 ├── src/bootstrap.py              ← the warm-up itself (no-op when the artefacts exist)
 ├── scripts/                      ← generate_sample_data · audit_dataset · benchmark_detectors
@@ -932,20 +933,21 @@ Python process.
 | Publish the code | `git init -b main && git add -A && git commit -m "ChainTrace AI - SIH26146"` then `gh repo create chaintrace-ai --public --source=. --remote=origin --push` |
 | Run it locally | `docker compose up --build` |
 | Self-healing local run (no Docker) | `streamlit run app/cloud_app.py` |
-| Host a live copy | Streamlit Community Cloud → main file **`app/cloud_app.py`** (see below) |
+| Host a live copy | Streamlit Community Cloud → main file **`streamlit_app.py`** (its default; see below) |
 | Host the full Docker image | `scripts/deploy_hf_space.sh <you>/chaintrace-ai <hf-write-token>` (needs a paid HF plan) |
 
 Four things worth knowing before you deploy:
 
 - **CI proves reproducibility, not just correctness.** `.github/workflows/ci.yml` regenerates the
 dataset, audits it against SIH26146, trains both anomaly models, runs all eight stages, scores the
-detectors against the planted ground truth, runs the 65 tests and builds the real image — on a clean
+detectors against the planted ground truth, runs the 67 tests and builds the real image — on a clean
 checkout with no data, no models and no artefacts.
 - **The artefacts are built, never committed.** On Docker the image build does it; on Streamlit
 Community Cloud `app/cloud_app.py` calls `src/bootstrap.py` on first paint and the console is
 populated in about three seconds. Uncommitted derived data cannot drift from the code.
-- **`app/dashboard.py` is the console; `app/cloud_app.py` is a warm-up wrapper around it.** Point a
-single-process host at the wrapper and a container host at either.
+- **`app/dashboard.py` is the console; `streamlit_app.py` and `app/cloud_app.py` are warm-up wrappers
+around it that share one implementation.** `streamlit_app.py` sits at the repository root because that
+is the filename Streamlit Community Cloud offers by default; a container host can point at any of them.
 - **Rebuild, do not restart.** The code lives inside the Docker image and only `./data` is
 bind-mounted, so a restarted old container serves the old dashboard.
 

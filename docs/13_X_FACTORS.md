@@ -233,7 +233,7 @@ python scripts/audit_dataset.py          # 35/35 — the data contract (SIH26146
 python scripts/benchmark_detectors.py    # C — precision vs innocent look-alikes, next to a baseline
 python -m src.utils.hashing --verify     # A — the hash chain, exit 0 only if intact
 python -m src.utils.hashing --tamper-demo# A — proves the check catches an edit
-pytest -q                                # 65 tests, including tests/test_xfactors.py (A–G)
+pytest -q                                # 67 tests, including tests/test_xfactors.py (A–G)
 docker compose up --build                # then open http://localhost:8501
 ```
 

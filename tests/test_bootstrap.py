@@ -15,13 +15,17 @@ import json
 import sys
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parent.parent
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src import bootstrap, config  # noqa: E402
 
-CLOUD_ENTRYPOINT = ROOT / "app" / "cloud_app.py"
+# `streamlit_app.py` at the root is the filename Streamlit Community Cloud offers as its
+# default main file; `app/cloud_app.py` is the same thing beside the console.
+HOSTED_ENTRYPOINTS = (ROOT / "streamlit_app.py", ROOT / "app" / "cloud_app.py")
 
 
 def _clear_artefacts() -> None:
@@ -63,14 +67,21 @@ def test_warmup_regenerates_the_dataset_when_it_is_missing():
     assert bootstrap.dataset_present() is True
 
 
-def test_hosted_entrypoint_renders_the_whole_console(monkeypatch):
-    """`streamlit run app/cloud_app.py` is the hosted entrypoint - it must just work."""
+@pytest.mark.parametrize("entrypoint", HOSTED_ENTRYPOINTS, ids=lambda path: path.name)
+def test_hosted_entrypoints_render_the_whole_console(entrypoint, monkeypatch):
+    """`streamlit run <entrypoint>` is all a host does - both of them must just work."""
     from streamlit.testing.v1 import AppTest
 
     _clear_artefacts()
     _offline_api(monkeypatch)
 
-    app = AppTest.from_file(str(CLOUD_ENTRYPOINT), default_timeout=300).run()
+    app = AppTest.from_file(str(entrypoint), default_timeout=300).run()
 
     assert not app.exception, [str(e.value) for e in app.exception]
     assert app.metric, "the counters must render on a cold, hosted copy"
+
+
+def test_both_hosted_entrypoints_defer_to_one_warm_up():
+    """Two entry points, one implementation - so they cannot drift apart."""
+    for path in HOSTED_ENTRYPOINTS:
+        assert "run_console" in path.read_text(encoding="utf-8"), path

@@ -109,7 +109,7 @@ chaintrace-ai/
 │   ├── deploy_hf_space.sh      publish the current commit to a Hugging Face Space (Part 14)
 │   └── export_graph_html.py    standalone offline pyvis page (no server required)
 │
-├── tests/                      65 tests, all hermetic (see conftest.py)
+├── tests/                      67 tests, all hermetic (see conftest.py)
 │   ├── conftest.py             sandboxes every data path into a tmp dir (tests can never touch the demo)
 │   ├── test_pipeline.py        19 tests: generator, parsers, enrich, correlate, graph, ML, alerts, ledger, API
 │   ├── test_dashboard.py       6 tests: the four screens, focus mode, the manual timeline seek,
@@ -117,7 +117,7 @@ chaintrace-ai/
 │   ├── test_focus.py           23 tests: the focus ladder, fade, money-flow rows, timeline stats
 │   ├── test_dataset_contract.py 4 tests: a freshly generated dataset still satisfies the SIH26146 brief
 │   ├── test_xfactors.py        9 tests: the X-factors A–G (ledger, case files, benchmark, replay, infra)
-│   └── test_bootstrap.py       4 tests: the shell-less warm-up and the hosted entrypoint
+│   └── test_bootstrap.py       5 tests: the shell-less warm-up and the hosted entrypoints
 │
 └── data/                       everything the pipeline reads and writes (dataset tracked, derived files ignored)
     ├── synthetic/              generated input: transactions.csv, network_metadata.csv, seeds, planted_patterns.json

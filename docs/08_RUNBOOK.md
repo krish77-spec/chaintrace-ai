@@ -98,7 +98,7 @@ uvicorn src.api.main:app --port 8000
 Check the installation before a demo:
 
 ```bash
-python -m pytest -q                    # 65 tests, ~15 s
+python -m pytest -q                    # 67 tests, ~19 s
 python scripts/audit_dataset.py        # 32 dataset-contract checks vs the SIH26146 brief
 python scripts/validate_detections.py  # detector precision/recall vs planted ground truth
 ```
@@ -297,7 +297,7 @@ python scripts/export_graph_html.py
 #     (useful when the laptop running the demo has no browser access to localhost)
 
 python -m pytest -q
-#   65 tests in ~15 s, all sandboxed away from ./data
+#   67 tests in ~19 s, all sandboxed away from ./data
 
 python scripts/audit_dataset.py
 #   32 checks: minimum fields, size envelope, planted patterns, value integrity,

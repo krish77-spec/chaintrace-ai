@@ -22,6 +22,7 @@ to call from an entrypoint, from a test, or by hand.
 
 from __future__ import annotations
 
+import runpy
 from pathlib import Path
 from typing import Callable, List, Optional
 
@@ -34,6 +35,7 @@ __all__ = [
     "dataset_present",
     "ensure_artefacts",
     "missing_artefacts",
+    "run_console",
 ]
 
 
@@ -95,3 +97,20 @@ def ensure_artefacts(
         f"in {summary.get('duration_seconds', 0):.1f}s"
     )
     return True
+
+
+def run_console(entrypoint: Optional[Path] = None) -> None:
+    """Warm this copy up, then run the dashboard script as the main program.
+
+    This is what the hosted entrypoints are: ``streamlit_app.py`` at the repository root
+    (the name Streamlit Community Cloud looks for by default) and ``app/cloud_app.py``
+    (the same thing, one directory down).  They exist only because a hosting form wants
+    a filename it recognises - Docker and a local checkout execute ``app/dashboard.py``
+    directly - and both defer to this one implementation so they cannot drift apart.
+
+    The warm-up prints rather than drawing, because ``st.set_page_config`` must be the
+    first Streamlit command in the script and it lives inside the dashboard.
+    """
+    ensure_artefacts(log=lambda message: print(f"[chaintrace] {message}", flush=True))
+    dashboard = entrypoint or (config.PROJECT_ROOT / "app" / "dashboard.py")
+    runpy.run_path(str(dashboard), run_name="__main__")
