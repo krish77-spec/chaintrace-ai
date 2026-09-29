@@ -3,6 +3,13 @@
 **Offline Bitcoin transaction-traffic correlation and ML triage prototype**
 SIH 2026 · Problem statement **SIH26146** · NTRO · Cryptocurrency · Team of six
 
+[![CI](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-3776ab.svg)](requirements.txt)
+[![Runtime 100% offline](https://img.shields.io/badge/runtime-100%25%20offline-success.svg)](#16-offline-guarantees)
+[![Tests](https://img.shields.io/badge/tests-60%20passing-brightgreen.svg)](tests/)
+[![Docs](https://img.shields.io/badge/docs-14%20parts-informational.svg)](GUIDE.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 ---
 
 ## What this is, in one paragraph
