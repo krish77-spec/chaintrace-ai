@@ -101,7 +101,8 @@ the running system never reaches outside the container.
 
 ```bash
 python3.11 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+
+pip install -r requirements-dev.txt        # runtime requirements + pytest
 
 python scripts/generate_sample_data.py     # synthetic dataset with planted patterns
 python scripts/audit_dataset.py            # 32 dataset-contract checks vs the SIH26146 brief
@@ -875,7 +876,8 @@ chaintrace-ai/
 | You want real geographic data | Put `GeoLite2-City.mmdb` and/or `GeoLite2-ASN.mmdb` into `data/geo/`; `GeoIPEnricher` switches to it automatically and reports its mode in the log |
 | Ports already in use | Change `CHAINTRACE_API_PORT` / `CHAINTRACE_DASHBOARD_PORT`, or edit the port mapping in `docker-compose.yml` |
 | Pipeline log warns "Cluster collapse guard" | Working as intended: a co-spend cluster exceeded 30 wallets, so it was excluded from risk inheritance and reported instead of silently smearing risk |
-| Tests fail on a fresh clone | Run the data generation step first, or run `pytest -q` — the fixtures generate their own small dataset in a temp directory |
+| `pytest: command not found` | `requirements.txt` holds the runtime dependencies only; the test runner lives in `requirements-dev.txt` (`pip install -r requirements-dev.txt`). The Docker image deliberately does not carry pytest |
+| Tests fail on a fresh clone | Nothing to prepare: `conftest.py` redirects every `data/` path into a temp directory and the fixtures generate their own small dataset, so a clean checkout passes with no data at all |
 
 ---
 

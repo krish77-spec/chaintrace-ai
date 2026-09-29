@@ -70,7 +70,9 @@ python3.11 -m venv .venv311          # or: conda create -p .venv311 python=3.11 
 source .venv311/bin/activate         # Windows: .venv311\Scripts\activate
 
 # 2. install everything, Streamlit included
-pip install -r requirements.txt
+#    requirements-dev.txt = requirements.txt + pytest (the shipped image installs only
+#    requirements.txt, so it never carries the test runner)
+pip install -r requirements-dev.txt
 # --- or install just the dashboard stack, if you only want to look at it ---
 # pip install streamlit==1.38.0 pandas==2.2.2 numpy==1.26.4 plotly==5.24.0 \
 #             networkx==3.3 requests==2.32.3

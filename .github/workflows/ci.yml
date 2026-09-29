@@ -24,7 +24,9 @@ jobs:
           cache: pip
 
       - name: Install pinned dependencies
-        run: pip install -r requirements.txt
+        # requirements-dev.txt is requirements.txt plus the test runner, so the runtime
+        # image never carries pytest.
+        run: pip install -r requirements-dev.txt
 
       - name: Generate the synthetic dataset and check it against SIH26146
         run: |

@@ -1,0 +1,11 @@
+# Development and CI only.
+#
+# The runtime image installs requirements.txt and nothing else, so the test runner
+# never ends up in the shipped container.  For local development install both:
+#
+#   pip install -r requirements-dev.txt
+#
+# Everything the test suite needs at runtime is already in requirements.txt; the
+# only extra here is the runner itself.
+-r requirements.txt
+pytest==8.3.3
