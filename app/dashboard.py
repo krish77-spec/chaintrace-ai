@@ -25,11 +25,13 @@ reading ``data/artifacts/`` from disk, so the demo works even with the API stopp
 
 from __future__ import annotations
 
+import io
 import json
 import math
 import os
 import random
 import sys
+import zipfile
 import zlib
 from datetime import datetime
 from pathlib import Path
@@ -175,6 +177,90 @@ def load_bundle() -> Dict[str, Any]:
         "summary": load_pipeline_summary(),
         "detailed": True,
     }
+
+
+# --------------------------------------------------------------------------- #
+# the bundled sample dataset (offered for download, never rebuilt for it)
+# --------------------------------------------------------------------------- #
+# The dataset ships with the repository, so a deployed copy has it from the first
+# second - the analysis is what gets built on top of it.  These entries are the files a
+# reviewer would otherwise have to run the generator to see, and the ground-truth
+# manifest is the one that makes the measured numbers on the other tabs checkable.
+DATASET_FILES: Sequence[Sequence[str]] = (
+    (
+        "transactions.csv",
+        "text/csv",
+        "Transaction layer: txid, inputs, outputs, value, fee, block height, timestamp.",
+    ),
+    (
+        "network_metadata.csv",
+        "text/csv",
+        "Network layer: src/dst IP and port, protocol, bytes, TXID, country and ASN.",
+    ),
+    (
+        "bulk_metadata.csv",
+        "text/csv",
+        "Both layers in one file - the single-file format SIH26146 literally describes.",
+    ),
+    (
+        "seed_illicit_wallets.json",
+        "application/json",
+        "The known-bad seed wallets that risk propagation starts from.",
+    ),
+    (
+        "planted_patterns.json",
+        "application/json",
+        "Ground-truth manifest: which patterns were planted where. Feeds the benchmark, "
+        "never the pipeline.",
+    ),
+)
+
+
+def dataset_files() -> List[Dict[str, Any]]:
+    """The bundled dataset files that are actually on disk, with a row count for CSVs."""
+    found: List[Dict[str, Any]] = []
+    for name, mime, description in DATASET_FILES:
+        path = config.SYNTHETIC_DIR / name
+        if not path.exists():
+            continue
+        rows: Optional[int] = None
+        if name.endswith(".csv"):
+            try:
+                with path.open("r", encoding="utf-8") as handle:
+                    rows = max(sum(1 for _ in handle) - 1, 0)
+            except OSError:
+                rows = None
+        found.append({"name": name, "path": path, "mime": mime, "description": description, "rows": rows})
+    return found
+
+
+def dataset_zip() -> bytes:
+    """One archive: the dataset plus the offline GeoIP table it is enriched from."""
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w", zipfile.ZIP_DEFLATED) as archive:
+        for entry in dataset_files():
+            archive.write(entry["path"], arcname=f"chaintrace_sample/{entry['name']}")
+        if config.MOCK_GEO_PATH.exists():
+            archive.write(config.MOCK_GEO_PATH, arcname="chaintrace_sample/mock_geoip.json")
+    return buffer.getvalue()
+
+
+def _synthetic_fingerprint() -> float:
+    """Newest mtime in the dataset directory - the cache key for the downloads."""
+    stamps = [path.stat().st_mtime for path in config.SYNTHETIC_DIR.glob("*") if path.is_file()]
+    return max(stamps) if stamps else 0.0
+
+
+@st.cache_data(show_spinner=False)
+def _dataset_bytes(path: str, mtime: float) -> bytes:
+    """File contents, cached - the mtime argument *is* the cache key."""
+    return Path(path).read_bytes()
+
+
+@st.cache_data(show_spinner=False)
+def _dataset_zip(fingerprint: float) -> bytes:
+    """The whole archive, cached the same way."""
+    return dataset_zip()
 
 
 def risk_class(score: float) -> str:
@@ -1313,6 +1399,46 @@ with overview_tab:
     col8.metric("Anomalies flagged", counts.get("anomalies_flagged", 0))
     col9.metric("Evidence hashes", len(alerts))
     col10.metric("Pipeline time", f"{summary.get('duration_seconds', 0):.1f}s")
+
+    with st.expander("📦 Take the bundled sample dataset with you", expanded=False):
+        st.caption(
+            f"The exact dataset this page analysed - deterministic from seed {config.RANDOM_SEED}, "
+            f"covering {config.DATASET_WINDOW_START:%d %b %Y} → {config.DATASET_WINDOW_END:%d %b %Y}. "
+            "Every number on these four tabs reproduces from these files with "
+            "`python scripts/run_full_pipeline.py`. It is synthetic throughout: no real address, "
+            "wallet or IP belongs to anybody."
+        )
+        dataset_entries = dataset_files()
+        if not dataset_entries:
+            st.info(
+                "The dataset is generated on first run. Use **Run analysis** in the sidebar with "
+                "*Regenerate synthetic sample first* and it will appear here."
+            )
+        else:
+            fingerprint = _synthetic_fingerprint()
+            for entry in dataset_entries:
+                text_column, button_column = st.columns([4, 1])
+                with text_column:
+                    rows = f" · {entry['rows']:,} rows" if entry["rows"] is not None else ""
+                    st.markdown(f"**{entry['name']}**{rows}")
+                    st.caption(entry["description"])
+                with button_column:
+                    st.download_button(
+                        "⬇ Download",
+                        data=_dataset_bytes(str(entry["path"]), entry["path"].stat().st_mtime),
+                        file_name=entry["name"],
+                        mime=entry["mime"],
+                        key=f"dl_dataset_{entry['name']}",
+                        use_container_width=True,
+                    )
+            st.download_button(
+                "⬇ Everything as one zip — the dataset plus the offline GeoIP table",
+                data=_dataset_zip(fingerprint),
+                file_name="chaintrace_sample_dataset.zip",
+                mime="application/zip",
+                key="dl_dataset_zip",
+                use_container_width=True,
+            )
 
     st.markdown("---")
     if not filtered:

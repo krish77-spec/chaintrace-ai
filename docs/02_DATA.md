@@ -4,6 +4,12 @@ The prototype ships with a synthetic dataset because real blockchain-plus-networ
 distributable. This part explains exactly what is in that data, column by column, and what the
 ground-truth manifest contains. Once you know this, every number in the dashboard is interpretable.
 
+All of it is also downloadable from the console itself: Screen 1 → **📦 Take the bundled sample
+dataset with you** offers the three CSVs, the seed list and the ground-truth manifest (plus the offline
+GeoIP table) individually or as one zip. Nothing has to be generated first — the dataset is committed
+with the repository while the analysis built on top of it is not (the reasoning for that split is in
+[Part 14 §0](14_DEPLOY.md)).
+
 ---
 
 ## 2.1 `data/synthetic/transactions.csv` — 1,200 rows

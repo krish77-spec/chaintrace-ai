@@ -6,7 +6,7 @@ SIH 2026 · Problem statement **SIH26146** · NTRO · Cryptocurrency · Team of 
 [![CI](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/krish77-spec/chaintrace-ai/actions/workflows/ci.yml)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-3776ab.svg)](requirements.txt)
 [![Runtime 100% offline](https://img.shields.io/badge/runtime-100%25%20offline-success.svg)](#16-offline-guarantees)
-[![Tests](https://img.shields.io/badge/tests-64%20passing-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/tests-65%20passing-brightgreen.svg)](tests/)
 [![Docs](https://img.shields.io/badge/docs-14%20parts-informational.svg)](GUIDE.md)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -112,7 +112,7 @@ python scripts/validate_detections.py      # precision/recall vs the planted gro
 
 streamlit run app/dashboard.py             # dashboard on :8501
 uvicorn src.api.main:app --port 8000       # API on :8000
-pytest -q                                  # 64 tests, ~15 s
+pytest -q                                  # 65 tests, ~15 s
 ```
 
 Or skip the Docker image entirely and let the app warm itself up — this is the same entrypoint the
@@ -136,7 +136,10 @@ type, free-text search), and the ranked alert table: *Alert · Entity · Type ·
 Confidence · Top reason · Recommended action*. Selecting a row opens the full
 explanation: the plain-English reasons, a bar chart of evidence strength per detector
 (risk / peeling / mixing / anomaly / cluster / correlation), the model's feature
-contributions, and the pipeline timings.
+contributions, and the pipeline timings. Below the counters sits **📦 Take the bundled sample dataset
+with you**: the dataset is committed with the repository while the analysis is rebuilt, so Screen 1
+hands over the exact transactions, network records, seed list, ground-truth manifest and offline GeoIP
+table - individually or as one zip - before anything has even been run.
 
 **Screen 2 — Interactive Graph.** The wallet ↔ transaction ↔ IP map, coloured by risk
 score, by ownership cluster, or by node type; **node size grows with degree** (how many
@@ -936,7 +939,7 @@ Four things worth knowing before you deploy:
 
 - **CI proves reproducibility, not just correctness.** `.github/workflows/ci.yml` regenerates the
 dataset, audits it against SIH26146, trains both anomaly models, runs all eight stages, scores the
-detectors against the planted ground truth, runs the 64 tests and builds the real image — on a clean
+detectors against the planted ground truth, runs the 65 tests and builds the real image — on a clean
 checkout with no data, no models and no artefacts.
 - **The artefacts are built, never committed.** On Docker the image build does it; on Streamlit
 Community Cloud `app/cloud_app.py` calls `src/bootstrap.py` on first paint and the console is

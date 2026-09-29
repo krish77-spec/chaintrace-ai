@@ -108,7 +108,7 @@ checkout — no data, no models, no artefacts:
 1. `generate_sample_data.py` + `audit_dataset.py` → the dataset still satisfies the SIH26146 contract.
 2. `train_models.py` + `run_full_pipeline.py` → all eight stages still run from scratch.
 3. `validate_detections.py` → precision/recall against the planted ground truth.
-4. `pytest -q` → 64 tests.
+4. `pytest -q` → 65 tests.
 5. a second job that builds the real Docker image (nothing pushed), so "one command" stays true.
 
 > Two bugs were only ever visible in CI, which is the argument for having it: `pytest` was missing
@@ -173,6 +173,7 @@ The app is then live at `https://<subdomain>.streamlit.app`.
 | | |
 |---|---|
 | the four console screens | yes — alerts, graph, infrastructure, evidence |
+| the bundled dataset download (Screen 1) | yes — the dataset is committed, so it is available before anything has been analysed |
 | Run Analysis (any of the three input sources) | yes — it runs in-process, no API needed |
 | the SHA-256 verification and the tamper demo | yes |
 | the FastAPI service and its `/docs` | **no** — one process only. The sidebar reads `artefacts · filesystem` |

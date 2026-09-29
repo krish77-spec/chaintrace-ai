@@ -189,6 +189,27 @@ These tiles are the **health check of the whole system**. If you ever press Run 
 `Records processed: 0` or `Ranked alerts: 0`, something upstream failed — check
 `data/artifacts/pipeline_summary.json` for the failing stage.
 
+### 📦 Take the bundled sample dataset with you (expander)
+
+Collapsed by default, right under the tiles. It hands over the exact files this run analysed, so a
+reviewer can reproduce every number on these four tabs without running the generator first:
+
+| Download | What you get |
+|---|---|
+| `transactions.csv` | the transaction layer — inputs, outputs, values, fees, script types, timestamps |
+| `network_metadata.csv` | the network layer — src/dst IP and port, protocol, bytes, TXID, country and ASN |
+| `bulk_metadata.csv` | both layers in one file: the single-file format SIH26146 literally describes (the rows that carry both layers are the ones stage 3 correlates) |
+| `seed_illicit_wallets.json` | the known-bad seed wallets that risk propagation starts from |
+| `planted_patterns.json` | the ground-truth manifest — **benchmark input only; the pipeline never reads it** |
+| `chaintrace_sample_dataset.zip` | all five, plus `mock_geoip.json`, the offline GeoIP table the enricher looks IPs up in |
+
+The row counts beside each file are **read off the file itself**, so they cannot drift from whatever
+is on disk, and the panel is deliberately independent of the analysis: it works even when nothing has
+been run yet, which is the state a freshly deployed copy is in for its first few seconds (Part 14 §3).
+
+Everything in it is synthetic — generated from `RANDOM_SEED = 42` — including the Bitcoin addresses,
+which use the real Base58Check encoding but belong to nobody (Part 13, X-factor G).
+
 ### The ranked table
 
 ```

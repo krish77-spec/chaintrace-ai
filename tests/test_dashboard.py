@@ -403,3 +403,49 @@ def test_dashboard_tolerates_missing_artefacts(monkeypatch, tmp_path):
     app = AppTest.from_file(str(DASHBOARD), default_timeout=300).run()
     assert not app.exception, [str(e.value) for e in app.exception]
     assert app.metric  # counters still render, showing zeros
+
+
+def test_screen_one_lets_a_reviewer_take_the_dataset_away(monkeypatch):
+    """The dataset ships with the repository, so Screen 1 has to hand it over.
+
+    A deployed copy has the dataset from its first second - the analysis is what gets
+    built on top of it - which makes this the one part of the console that works before
+    anything has been run.  It is also what makes the measured numbers checkable: the
+    manifest it offers is the ground truth the benchmark scores against.
+    """
+    from streamlit.testing.v1 import AppTest
+    from src.data.generator import generate_dataset
+
+    generate_dataset(
+        output_dir=config.SYNTHETIC_DIR,
+        n_transactions=120,
+        n_wallets=60,
+        n_network_records=40,
+        seed=7,
+    )
+    monkeypatch.setattr(config, "API_URL", "http://127.0.0.1:9/closed")
+
+    app = AppTest.from_file(str(DASHBOARD), default_timeout=300).run()
+    assert not app.exception, [str(e.value) for e in app.exception]
+
+    box = next(box for box in app.get("expander") if "dataset" in box.label.lower())
+    # the widget id carries the key, which is how these downloads stay findable here
+    keys = [button.proto.id.rsplit("-", 1)[-1] for button in box.get("download_button")]
+    assert "dl_dataset_zip" in keys
+    files = [key for key in keys if key.startswith("dl_dataset_") and key != "dl_dataset_zip"]
+    assert len(files) == 5, keys
+
+    rendered = " ".join(element.value for element in box.get("markdown"))
+    for expected in (
+        "transactions.csv",
+        "network_metadata.csv",
+        "bulk_metadata.csv",
+        "seed_illicit_wallets.json",
+        "planted_patterns.json",
+    ):
+        assert expected in rendered, rendered
+    # the row count is read off the file, not written into the page
+    transactions = config.SYNTHETIC_DIR / config.TRANSACTIONS_CSV
+    with transactions.open("r", encoding="utf-8") as handle:
+        real_rows = sum(1 for _ in handle) - 1
+    assert f"{real_rows:,} rows" in rendered, rendered
